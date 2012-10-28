@@ -1,0 +1,17 @@
+
+COCOAPODS: 0.15.2
+
+DEPENDENCIES: 
+- JSONKit (~> 1.4)
+- Reachability (~> 3.0.0)
+- objectiveflickr
+
+PODS: 
+- JSONKit (1.5pre)
+- Reachability (3.0.0)
+- objectiveflickr (0.0.1)
+
+SPEC CHECKSUMS: 
+  objectiveflickr: d4ec5fdf3e3ec09b524fafc131483b02c91192f1
+  Reachability: 500bd76bf6cd8ff2c6fb715fc5f44ef6e4c024f2
+  JSONKit: a01a22c75f27eae76b4badd55a91c20fe6e86477
