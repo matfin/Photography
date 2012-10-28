@@ -23,10 +23,40 @@
     return self;
 }
 
+- (id)initWithNavBarTitle:(NSString *)theNavBarTitle
+{
+    self = [super init];
+    if(self)
+    {
+        self.navBarTitle = theNavBarTitle;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    int navBarWidth = self.navigationController.navigationBar.frame.size.width;
+    int navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    
+    UILabel *navBarTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, navBarWidth - 100, navBarHeight)];
+    [navBarTitleLabel setBackgroundColor:[UIColor clearColor]];
+    [navBarTitleLabel setFont:[UIFont fontWithName:@"Arial" size:20.0f]];
+    [navBarTitleLabel setTextColor:[UIColor whiteColor]];
+    [navBarTitleLabel setText:self.navBarTitle];
+    [self.navigationItem setTitleView:navBarTitleLabel];
+}
+
+- (void)viewWillUnload
+{
+    self.navBarTitle = nil;
 }
 
 - (void)didReceiveMemoryWarning

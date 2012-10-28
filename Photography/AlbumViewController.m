@@ -23,14 +23,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"This is the album view controller appearing?");
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"This is the album view controller loading?");
-	// Do any additional setup after loading the view.
+// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

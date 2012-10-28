@@ -10,20 +10,20 @@
 
 @implementation AppDelegate
 
-@synthesize navigationViewController;
+@synthesize navigationController;
 @synthesize albumViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
     
     /*  Setting up our ViewControllers */
-    self.albumViewController = [[AlbumViewController alloc] init];
-    
+    self.albumViewController = [[AlbumViewController alloc] initWithNavBarTitle:@"Albums"];
     
     /*  Setting up NavigationViewController and displaying view */
-    self.navigationViewController = [[NavigationViewController alloc] initWithRootViewController:self.albumViewController];
-    self.window.rootViewController = self.navigationViewController;
+    self.navigationController = [[NavigationViewController alloc] initWithRootViewController:self.albumViewController];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -17,7 +17,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NavigationViewController *navigationViewController;
+@property (strong, nonatomic) NavigationViewController *navigationController;
 
 /*  The view controllers we will be using   */
 @property (strong, nonatomic) AlbumViewController *albumViewController;

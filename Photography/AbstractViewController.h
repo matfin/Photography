@@ -10,4 +10,6 @@
 
 @interface AbstractViewController : UIViewController
 
+@property (strong, nonatomic) NSString *navBarTitle;
+- (id)initWithNavBarTitle:(NSString *)theNavBarTitle;
 @end
