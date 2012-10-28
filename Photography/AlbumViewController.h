@@ -7,9 +7,11 @@
 //
 
 #import "AbstractViewController.h"
+#import "ObjectiveFlickr.h"
 
-@interface AlbumViewController : AbstractViewController
+@interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
+@property (nonatomic, retain) NSDictionary *photoAlbums;
 
 @end
