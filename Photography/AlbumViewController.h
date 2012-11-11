@@ -7,7 +7,9 @@
 //
 
 #import "AbstractViewController.h"
-#import "ObjectiveFlickr.h"
+
+#define FLICKR_USER_ID @"7994187@N06"
+#define FLICKR_API_KEY @"613d9cb1d23d4f20d34cbb419dc0eef7"
 
 @interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate>
 

@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationViewController.h"
-#import "AlbumViewController.h"
-
-#define FLICKR_USER_ID @"7994187@N06"
-#define FLICKR_API_URL @"http://api.flickr.com/services/rest/?"
-#define FLICKR_API_KEY @"613d9cb1d23d4f20d34cbb419dc0eef7" 
+#import "AlbumViewController.h" 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
