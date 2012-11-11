@@ -32,6 +32,8 @@
     [super viewDidLoad];
     [self.albumsTable setDelegate:self];
     [self.albumsTable setDataSource:self];
+    
+    [self grabURLInBackground];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -67,4 +69,33 @@
     [self setAlbumsTable:nil];
     [super viewDidUnload];
 }
+
+- (void)grabURLInBackground
+{    
+    NSURL *flickrURL = [NSURL URLWithString:FLICKR_API_URL];
+    //ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:flickrURL];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:flickrURL];
+    
+    [request addPostValue:@"flickr.photosets.getList" forKey:@"method"];
+    [request addPostValue:FLICKR_API_KEY forKey:@"api_key"];
+    [request addPostValue:FLICKR_USER_ID forKey:@"user_id"];
+    [request addPostValue:@"json" forKey:@"format"];
+    [request addPostValue:@"1" forKey:@"nojsoncallback"];
+    
+    [request setDelegate:self];
+    [request startAsynchronous];
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSLog(@"We finished the request succesfully - Data is as follows");
+    NSString *responseString = [request responseString];
+    NSLog(responseString);
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSLog(@"Could not finish the request");
+}
+
 @end

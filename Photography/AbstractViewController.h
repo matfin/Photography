@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSONKit.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 
 @interface AbstractViewController : UIViewController
 
