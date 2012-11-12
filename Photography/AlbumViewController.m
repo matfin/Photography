@@ -33,11 +33,14 @@
     [self.albumsTable setDelegate:self];
     [self.albumsTable setDataSource:self];
     
+    self.photoAlbums = [NSMutableArray alloc];
+    
     [self grabURLInBackground];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    //return [photoAlbums count];
     return 3;
 }
 
@@ -73,24 +76,38 @@
 - (void)grabURLInBackground
 {    
     NSURL *flickrURL = [NSURL URLWithString:FLICKR_API_URL];
-    //ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:flickrURL];
+    /*
+     *  Set up Flickr API url with params for fetching Photosets
+     */
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:flickrURL];
-    
     [request addPostValue:@"flickr.photosets.getList" forKey:@"method"];
     [request addPostValue:FLICKR_API_KEY forKey:@"api_key"];
     [request addPostValue:FLICKR_USER_ID forKey:@"user_id"];
     [request addPostValue:@"json" forKey:@"format"];
     [request addPostValue:@"1" forKey:@"nojsoncallback"];
     
+    /*
+     *  Set Delegate to self then grab data from callback with async request
+     */
     [request setDelegate:self];
     [request startAsynchronous];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSLog(@"We finished the request succesfully - Data is as follows");
+    NSLog(@"We finished the request succesfully");
     NSString *responseString = [request responseString];
-    NSLog(responseString);
+    // Grab the json and create a JSON Kit NSDictionary from it.
+    //self.photoAlbums = [responseString objectFromJSONString];
+    NSDictionary *resultsDictionary = [responseString objectFromJSONString];
+    
+    NSDictionary *flickrPhotoSets = [[resultsDictionary objectForKey:@"photosets"] objectForKey:@"photoset"];
+    NSLog(@"We have %i here", [flickrPhotoSets count]);
+    for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
+    {
+        NSDictionary *tmp = flickrPhotoSet;
+        NSLog(@"testing: %@", [[tmp objectForKey:@"title"] objectForKey:@"_content"]);
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

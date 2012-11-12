@@ -17,7 +17,7 @@
 @interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate, ASIHTTPRequestDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
-@property (nonatomic, retain) NSDictionary *photoAlbums;
+@property (nonatomic, retain) NSMutableArray *photoAlbums;
 
 - (void)grabURLInBackground;
 
