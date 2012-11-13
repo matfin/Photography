@@ -7,11 +7,12 @@
 //
 
 #import "AlbumViewController.h"
+#import "Photoset.h"
 
 @implementation AlbumViewController
 
 @synthesize albumsTable;
-@synthesize photoAlbums;
+@synthesize photoSets;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,15 +34,14 @@
     [self.albumsTable setDelegate:self];
     [self.albumsTable setDataSource:self];
     
-    self.photoAlbums = [NSMutableArray alloc];
+    self.photoSets = [[NSMutableArray alloc] init];
     
     [self grabURLInBackground];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [photoAlbums count];
-    return 3;
+    return [photoSets count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,17 +49,32 @@
     NSString *cellIdentifier = @"UndefinedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    Photoset *photoSet = [self.photoSets objectAtIndex:indexPath.row];
+    
     if(cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        CGSize cellSize = cell.bounds.size;
+        
+        UILabel *photoSetDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, cellSize.width - 300.0f, cellSize. height - 10.0f)];
+        [photoSetDescriptionLabel setText:photoSet.photosetTitle];
+        [cell addSubview:photoSetDescriptionLabel];
+        
+        NSLog(@"Photoset title is: %@", [photoSet photosetTitle]);
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"Something was tapped.");
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,17 +111,18 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSLog(@"We finished the request succesfully");
+    
     NSString *responseString = [request responseString];
     // Grab the json and create a JSON Kit NSDictionary from it.
     //self.photoAlbums = [responseString objectFromJSONString];
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
     
     NSDictionary *flickrPhotoSets = [[resultsDictionary objectForKey:@"photosets"] objectForKey:@"photoset"];
-    NSLog(@"We have %i here", [flickrPhotoSets count]);
     for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
     {
-        NSDictionary *tmp = flickrPhotoSet;
-        NSLog(@"testing: %@", [[tmp objectForKey:@"title"] objectForKey:@"_content"]);
+        //NSLog(@"testing: %@", [[tmp objectForKey:@"title"] objectForKey:@"_content"]);
+        Photoset *photoSet = [[Photoset alloc] initWithDictionary:flickrPhotoSet];
+        [self.photoSets addObject:photoSet];
     }
 }
 

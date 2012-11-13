@@ -8,7 +8,6 @@
 
 #import "AbstractViewController.h"
 
-
 #define FLICKR_USER_ID  @"7994187@N06"
 #define FLICKR_API_KEY  @"ca85ac818eb4301d772ffa07cde809c4"
 #define FLICKR_SECRET   @"608dd2303e2c4148"
@@ -17,7 +16,7 @@
 @interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate, ASIHTTPRequestDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
-@property (nonatomic, retain) NSMutableArray *photoAlbums;
+@property (nonatomic, retain) NSMutableArray *photoSets;
 
 - (void)grabURLInBackground;
 

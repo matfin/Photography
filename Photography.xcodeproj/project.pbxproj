@@ -17,7 +17,7 @@
 		C9239684163D81C7002E2DB7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C9239683163D81C7002E2DB7 /* Default.png */; };
 		C9239686163D81C7002E2DB7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9239685163D81C7002E2DB7 /* Default@2x.png */; };
 		C9239688163D81C7002E2DB7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9239687163D81C7002E2DB7 /* Default-568h@2x.png */; };
-		C92396A8163D88F3002E2DB7 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396A7163D88F3002E2DB7 /* Album.m */; };
+		C92396A8163D88F3002E2DB7 /* Photoset.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396A7163D88F3002E2DB7 /* Photoset.m */; };
 		C92396BA163D9F54002E2DB7 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396B9163D9F54002E2DB7 /* NavigationViewController.m */; };
 		C92396BD163D9F7D002E2DB7 /* AbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396BC163D9F7D002E2DB7 /* AbstractViewController.m */; };
 		C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */; };
@@ -41,8 +41,8 @@
 		C9239683163D81C7002E2DB7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C9239685163D81C7002E2DB7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C9239687163D81C7002E2DB7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C92396A6163D88F3002E2DB7 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
-		C92396A7163D88F3002E2DB7 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		C92396A6163D88F3002E2DB7 /* Photoset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photoset.h; sourceTree = "<group>"; };
+		C92396A7163D88F3002E2DB7 /* Photoset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photoset.m; sourceTree = "<group>"; };
 		C92396B8163D9F54002E2DB7 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		C92396B9163D9F54002E2DB7 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		C92396BB163D9F7D002E2DB7 /* AbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractViewController.h; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 		C92396A2163D82FC002E2DB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C92396A6163D88F3002E2DB7 /* Album.h */,
-				C92396A7163D88F3002E2DB7 /* Album.m */,
+				C92396A6163D88F3002E2DB7 /* Photoset.h */,
+				C92396A7163D88F3002E2DB7 /* Photoset.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 			files = (
 				C923967E163D81C7002E2DB7 /* main.m in Sources */,
 				C9239682163D81C7002E2DB7 /* AppDelegate.m in Sources */,
-				C92396A8163D88F3002E2DB7 /* Album.m in Sources */,
+				C92396A8163D88F3002E2DB7 /* Photoset.m in Sources */,
 				C92396BA163D9F54002E2DB7 /* NavigationViewController.m in Sources */,
 				C92396BD163D9F7D002E2DB7 /* AbstractViewController.m in Sources */,
 				C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */,
