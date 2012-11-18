@@ -41,6 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"We have %i photosets", [photoSets count]);
     return [photoSets count];
 }
 
@@ -58,7 +59,7 @@
         
         CGSize cellSize = cell.bounds.size;
         
-        UILabel *photoSetDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, cellSize.width - 300.0f, cellSize. height - 10.0f)];
+        UILabel *photoSetDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, cellSize.width - 20.0f, cellSize.height - 10.0f)];
         [photoSetDescriptionLabel setText:photoSet.photosetTitle];
         [cell addSubview:photoSetDescriptionLabel];
         
@@ -74,7 +75,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.0f;
+    return 50.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,6 +125,7 @@
         Photoset *photoSet = [[Photoset alloc] initWithDictionary:flickrPhotoSet];
         [self.photoSets addObject:photoSet];
     }
+    [self.albumsTable reloadData];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
