@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		95EB76ECBBA04498B6122CA0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54277F94EE734D4FB82EFA09 /* libPods.a */; };
+		C9103E5D165AD5B00066F401 /* PhotosetTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9103E5B165AD5B00066F401 /* PhotosetTableCell.m */; };
+		C9103E67165AF44A0066F401 /* PhotosetTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9103E66165AF44A0066F401 /* PhotosetTableCell.xib */; };
 		C9239672163D81C7002E2DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9239671163D81C7002E2DB7 /* UIKit.framework */; };
 		C9239674163D81C7002E2DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9239673163D81C7002E2DB7 /* Foundation.framework */; };
 		C9239676163D81C7002E2DB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9239675163D81C7002E2DB7 /* CoreGraphics.framework */; };
@@ -28,6 +30,9 @@
 /* Begin PBXFileReference section */
 		54277F94EE734D4FB82EFA09 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7755267D2CA14E0A96C0D463 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C9103E5A165AD5B00066F401 /* PhotosetTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosetTableCell.h; sourceTree = "<group>"; };
+		C9103E5B165AD5B00066F401 /* PhotosetTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosetTableCell.m; sourceTree = "<group>"; };
+		C9103E66165AF44A0066F401 /* PhotosetTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosetTableCell.xib; sourceTree = "<group>"; };
 		C923966D163D81C7002E2DB7 /* Photography.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photography.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9239671163D81C7002E2DB7 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C9239673163D81C7002E2DB7 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -69,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9103E58165AD5280066F401 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				C9103E5A165AD5B00066F401 /* PhotosetTableCell.h */,
+				C9103E5B165AD5B00066F401 /* PhotosetTableCell.m */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
 		C9239662163D81C7002E2DB7 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 		C9239677163D81C7002E2DB7 /* Photography */ = {
 			isa = PBXGroup;
 			children = (
+				C9103E58165AD5280066F401 /* TableCells */,
 				C92396A3163D8305002E2DB7 /* Resources */,
 				C92396A2163D82FC002E2DB7 /* Models */,
 				C92396A1163D82F0002E2DB7 /* XIBs */,
@@ -143,6 +158,7 @@
 		C92396A1163D82F0002E2DB7 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				C9103E66165AF44A0066F401 /* PhotosetTableCell.xib */,
 				C92396CB163DA532002E2DB7 /* AlbumViewController.xib */,
 			);
 			name = XIBs;
@@ -237,6 +253,7 @@
 				C9239686163D81C7002E2DB7 /* Default@2x.png in Resources */,
 				C9239688163D81C7002E2DB7 /* Default-568h@2x.png in Resources */,
 				C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */,
+				C9103E67165AF44A0066F401 /* PhotosetTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +287,7 @@
 				C92396BA163D9F54002E2DB7 /* NavigationViewController.m in Sources */,
 				C92396BD163D9F7D002E2DB7 /* AbstractViewController.m in Sources */,
 				C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */,
+				C9103E5D165AD5B00066F401 /* PhotosetTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

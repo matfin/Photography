@@ -7,6 +7,7 @@
 //
 
 #import "AbstractViewController.h"
+#import "PhotosetTableCell.h"
 
 #define FLICKR_USER_ID  @"7994187@N06"
 #define FLICKR_API_KEY  @"ca85ac818eb4301d772ffa07cde809c4"
@@ -17,6 +18,7 @@
 
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
 @property (nonatomic, retain) NSMutableArray *photoSets;
+@property (nonatomic, retain) ASIFormDataRequest *request;
 
 - (void)grabURLInBackground;
 

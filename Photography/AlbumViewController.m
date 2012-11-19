@@ -13,6 +13,7 @@
 
 @synthesize albumsTable;
 @synthesize photoSets;
+@synthesize request;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,24 +48,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"UndefinedCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     Photoset *photoSet = [self.photoSets objectAtIndex:indexPath.row];
+    static NSString *photosetTableCellIdentifier = @"PhotosetTableCell";
     
+    PhotosetTableCell *cell = (PhotosetTableCell *)[tableView dequeueReusableCellWithIdentifier:photosetTableCellIdentifier];
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        CGSize cellSize = cell.bounds.size;
-        
-        UILabel *photoSetDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, cellSize.width - 20.0f, cellSize.height - 10.0f)];
-        [photoSetDescriptionLabel setText:photoSet.photosetTitle];
-        [cell addSubview:photoSetDescriptionLabel];
-        
-        NSLog(@"Photoset title is: %@", [photoSet photosetTitle]);
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
+    
+    [cell.photosetTitleLabel setText:photoSet.photosetTitle];
+    [cell.photosetCountLabel setText:@"20"];
+    
     return cell;
 }
 
@@ -75,7 +71,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50.0f;
+    return 78.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,8 +81,15 @@
 }
 
 - (void)viewDidUnload {
+    [self.albumsTable setDelegate:nil];
     [self setAlbumsTable:nil];
     [super viewDidUnload];
+}
+
+- (void)dealloc
+{
+    [self.request clearDelegatesAndCancel];
+    self.request = nil;
 }
 
 - (void)grabURLInBackground
@@ -95,25 +98,25 @@
     /*
      *  Set up Flickr API url with params for fetching Photosets
      */
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:flickrURL];
-    [request addPostValue:@"flickr.photosets.getList" forKey:@"method"];
-    [request addPostValue:FLICKR_API_KEY forKey:@"api_key"];
-    [request addPostValue:FLICKR_USER_ID forKey:@"user_id"];
-    [request addPostValue:@"json" forKey:@"format"];
-    [request addPostValue:@"1" forKey:@"nojsoncallback"];
+    self.request = [ASIFormDataRequest requestWithURL:flickrURL];
+    [self.request addPostValue:@"flickr.photosets.getList" forKey:@"method"];
+    [self.request addPostValue:FLICKR_API_KEY forKey:@"api_key"];
+    [self.request addPostValue:FLICKR_USER_ID forKey:@"user_id"];
+    [self.request addPostValue:@"json" forKey:@"format"];
+    [self.request addPostValue:@"1" forKey:@"nojsoncallback"];
     
     /*
      *  Set Delegate to self then grab data from callback with async request
      */
-    [request setDelegate:self];
-    [request startAsynchronous];
+    [self.request setDelegate:self];
+    [self.request startAsynchronous];
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)request
+- (void)requestFinished:(ASIHTTPRequest *)theRequest
 {
     NSLog(@"We finished the request succesfully");
     
-    NSString *responseString = [request responseString];
+    NSString *responseString = [theRequest responseString];
     // Grab the json and create a JSON Kit NSDictionary from it.
     //self.photoAlbums = [responseString objectFromJSONString];
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
@@ -128,7 +131,7 @@
     [self.albumsTable reloadData];
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
+- (void)requestFailed:(ASIHTTPRequest *)theRequest
 {
     NSLog(@"Could not finish the request");
 }

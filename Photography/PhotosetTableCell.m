@@ -1,0 +1,22 @@
+//
+//  PhotosetCellViewController.m
+//  Photography
+//
+//  Created by Matt Finucane on 19/11/2012.
+//  Copyright (c) 2012 Matt Finucane. All rights reserved.
+//
+
+#import "PhotosetTableCell.h"
+
+@implementation PhotosetTableCell
+
+@synthesize photosetPreviewImageView;
+@synthesize photosetTitleLabel;
+@synthesize photosetCountLabel;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+   //return [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+}
+
+@end
