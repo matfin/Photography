@@ -14,9 +14,4 @@
 @synthesize photosetTitleLabel;
 @synthesize photosetCountLabel;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-   //return [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-}
-
 @end

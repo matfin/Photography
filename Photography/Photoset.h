@@ -10,11 +10,12 @@
 
 @interface Photoset : NSObject
 @property (assign) NSInteger photosetId;
+@property (assign) NSInteger photosetCount;
 @property (nonatomic, retain) NSString *photosetTitle;
 @property (nonatomic, retain) NSString *photosetDescription;
 @property (nonatomic, retain) NSMutableArray *photosetPhotos;
 
-- (id)initWithRawData:(NSInteger)thePhotosetId :(NSString *)thePhotosetTitle :(NSString *)thePhotosetDescription;
+- (id)initWithRawData:(NSInteger)thePhotosetId :(NSInteger)thePhotosetCount :(NSString *)thePhotosetTitle :(NSString *)thePhotosetDescription;
 - (id)initWithDictionary:(NSDictionary *)photoSet;
 
 @end

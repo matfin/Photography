@@ -59,7 +59,7 @@
     }
     
     [cell.photosetTitleLabel setText:photoSet.photosetTitle];
-    [cell.photosetCountLabel setText:@"20"];
+    [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", photoSet.photosetCount]];
     
     return cell;
 }
@@ -118,13 +118,11 @@
     
     NSString *responseString = [theRequest responseString];
     // Grab the json and create a JSON Kit NSDictionary from it.
-    //self.photoAlbums = [responseString objectFromJSONString];
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
     
     NSDictionary *flickrPhotoSets = [[resultsDictionary objectForKey:@"photosets"] objectForKey:@"photoset"];
     for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
     {
-        //NSLog(@"testing: %@", [[tmp objectForKey:@"title"] objectForKey:@"_content"]);
         Photoset *photoSet = [[Photoset alloc] initWithDictionary:flickrPhotoSet];
         [self.photoSets addObject:photoSet];
     }
