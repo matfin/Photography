@@ -77,6 +77,7 @@
     for(NSDictionary *flickrPhoto in flickrPhotos)
     {
         Photo *photo = [[Photo alloc] initWithDictionary:flickrPhoto];
+        [photo populateImages];
         [self.photosetPhotos addObject:photo];
     }
     
