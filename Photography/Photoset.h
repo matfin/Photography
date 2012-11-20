@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
 #import "JSONKit.h"
+#import "Photo.h"
 
 #define FLICKR_USER_ID  @"7994187@N06"
 #define FLICKR_API_KEY  @"ca85ac818eb4301d772ffa07cde809c4"

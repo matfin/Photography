@@ -76,7 +76,8 @@
     NSDictionary *flickrPhotos = [[resultsDictionary objectForKey:@"photoset"] objectForKey:@"photo"];
     for(NSDictionary *flickrPhoto in flickrPhotos)
     {
-        NSLog(@"Photo title is: %@", [flickrPhoto objectForKey:@"title"]);
+        Photo *photo = [[Photo alloc] initWithDictionary:flickrPhoto];
+        [self.photosetPhotos addObject:photo];
     }
     
     /*
