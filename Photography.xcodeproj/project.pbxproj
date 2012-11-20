@@ -25,6 +25,8 @@
 		C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */; };
 		C92396C9163DA44B002E2DB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92396C8163DA44B002E2DB7 /* CFNetwork.framework */; };
 		C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92396CB163DA532002E2DB7 /* AlbumViewController.xib */; };
+		C9B3CA13165C329B00B55D75 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA12165C329B00B55D75 /* Photo.m */; };
+		C9B3CA17165C32B100B55D75 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA16165C32B100B55D75 /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,10 @@
 		C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		C92396C8163DA44B002E2DB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C92396CB163DA532002E2DB7 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
+		C9B3CA11165C329B00B55D75 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		C9B3CA12165C329B00B55D75 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		C9B3CA15165C32B100B55D75 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		C9B3CA16165C32B100B55D75 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,10 @@
 			children = (
 				C92396A6163D88F3002E2DB7 /* Photoset.h */,
 				C92396A7163D88F3002E2DB7 /* Photoset.m */,
+				C9B3CA11165C329B00B55D75 /* Photo.h */,
+				C9B3CA12165C329B00B55D75 /* Photo.m */,
+				C9B3CA15165C32B100B55D75 /* Image.h */,
+				C9B3CA16165C32B100B55D75 /* Image.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -288,6 +298,8 @@
 				C92396BD163D9F7D002E2DB7 /* AbstractViewController.m in Sources */,
 				C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */,
 				C9103E5D165AD5B00066F401 /* PhotosetTableCell.m in Sources */,
+				C9B3CA13165C329B00B55D75 /* Photo.m in Sources */,
+				C9B3CA17165C32B100B55D75 /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

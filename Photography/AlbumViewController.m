@@ -124,6 +124,7 @@
     for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
     {
         Photoset *photoSet = [[Photoset alloc] initWithDictionary:flickrPhotoSet];
+        [photoSet populatePhotos];
         [self.photoSets addObject:photoSet];
     }
     [self.albumsTable reloadData];
