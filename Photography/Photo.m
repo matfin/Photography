@@ -63,7 +63,8 @@
     NSDictionary *flickrImages = [[resultsDictionary objectForKey:@"sizes"] objectForKey:@"size"];
     for(NSDictionary *flickrImage in flickrImages)
     {
-        NSLog(@"URL is: %@", [flickrImage objectForKey:@"source"]);
+        Image *image = [[Image alloc] initWithDictionary:flickrImage];
+        [self.photoImages addObject:image];
     }
     
     [self.request setDelegate:nil];
