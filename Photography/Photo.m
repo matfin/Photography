@@ -76,4 +76,12 @@
     NSLog(@"Request to get images failed!");
 }
 
+- (void)dealloc
+{
+    [self.request clearDelegatesAndCancel];
+    [self.request setDelegate:nil];
+    self.request = nil;
+    self.photoImages = nil;
+}
+
 @end

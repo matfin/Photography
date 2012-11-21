@@ -68,8 +68,6 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest
 {
-    NSLog(@"We got the photos for the photoset id ok!");
-    
     NSString *responseString = [theRequest responseString];
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
     
@@ -98,6 +96,14 @@
      */
     [self.request setDelegate:nil];
     self.request = nil;
+}
+
+- (void)dealloc
+{
+    [self.request clearDelegatesAndCancel];
+    [self.request setDelegate:nil];
+    self.request = nil;
+    self.photosetPhotos = nil;
 }
 
 @end
