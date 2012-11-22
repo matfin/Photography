@@ -17,12 +17,22 @@
 #define FLICKR_SECRET   @"608dd2303e2c4148"
 #define FLICKR_API_URL  @"http://api.flickr.com/services/rest/?"
 
+@protocol PhotoDelegate <NSObject>
+
+@required
+- (void) imagesLoaded: (BOOL)success;
+@end
+
 @interface Photo : NSObject <ASIHTTPRequestDelegate>
+{
+    id <PhotoDelegate> delegate;
+}
 
 @property (nonatomic, retain) NSString *photoId;
 @property (nonatomic, retain) NSString *photoTitle;
 @property (nonatomic, retain) NSMutableArray *photoImages;
 @property (nonatomic, retain) ASIFormDataRequest *request;
+@property (retain) id delegate;
 
 - (id)initWithRawData:(NSString *)thePhotoId :(NSString *)thePhotoTitle;
 - (id)initWithDictionary:(NSDictionary *)photo;

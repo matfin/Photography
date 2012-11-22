@@ -13,6 +13,7 @@
 @synthesize photoTitle;
 @synthesize photoImages;
 @synthesize request;
+@synthesize delegate;
 
 - (id)initWithRawData:(NSString *)thePhotoId :(NSString *)thePhotoTitle
 {
@@ -67,8 +68,14 @@
         [self.photoImages addObject:image];
     }
     
+    [self imageLoadingComplete];
     [self.request setDelegate:nil];
     self.request = nil;
+}
+
+- (void)imageLoadingComplete
+{
+    [[self delegate] imagesLoaded:YES];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest

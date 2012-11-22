@@ -66,6 +66,14 @@
     [self.request startAsynchronous];
 }
 
+- (void)imagesLoaded:(BOOL)success
+{
+    if(success)
+    {
+        NSLog(@"Image loaded here!");
+    }
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)theRequest
 {
     NSString *responseString = [theRequest responseString];
@@ -75,6 +83,7 @@
     for(NSDictionary *flickrPhoto in flickrPhotos)
     {
         Photo *photo = [[Photo alloc] initWithDictionary:flickrPhoto];
+        [photo setDelegate:self];
         [photo populateImages];
         [self.photosetPhotos addObject:photo];
     }

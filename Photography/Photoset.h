@@ -17,7 +17,7 @@
 #define FLICKR_SECRET   @"608dd2303e2c4148"
 #define FLICKR_API_URL  @"http://api.flickr.com/services/rest/?"
 
-@interface Photoset : NSObject <ASIHTTPRequestDelegate>
+@interface Photoset : NSObject <ASIHTTPRequestDelegate, PhotoDelegate>
 @property (assign) NSString *photosetId;
 @property (assign) NSInteger photosetCount;
 @property (nonatomic, retain) NSString *photosetTitle;
