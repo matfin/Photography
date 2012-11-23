@@ -10,6 +10,7 @@
 #import "JSONKit.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
+#import "UIImageView+Webcache.h"
 
 @interface AbstractViewController : UIViewController
 
