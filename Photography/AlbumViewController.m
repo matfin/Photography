@@ -7,7 +7,6 @@
 //
 
 #import "AlbumViewController.h"
-#import "Photoset.h"
 
 @implementation AlbumViewController
 
@@ -121,13 +120,36 @@
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
     
     NSDictionary *flickrPhotoSets = [[resultsDictionary objectForKey:@"photosets"] objectForKey:@"photoset"];
+    NSUInteger photosetIndex = 0;
     for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
     {
-        Photoset *photoSet = [[Photoset alloc] initWithDictionary:flickrPhotoSet];
+        Photoset *photoSet = [[Photoset alloc] initWithDictionaryAndIndex:flickrPhotoSet :photosetIndex];
+        photosetIndex++;
+        [photoSet setDelegate:self];
         [photoSet populatePhotos];
         [self.photoSets addObject:photoSet];
     }
     [self.albumsTable reloadData];
+}
+
+- (void)photosetAtIndexHasLoadedPhotos:(NSUInteger)photosetIndex
+{
+    NSLog(@"Photoset at index %i has loaded all photos", photosetIndex);
+}
+
+- (void)photosetHasLoadedAllPhotos:(NSMutableArray *)thePhotos
+{
+    NSLog(@"Photoset was loaded here with %i photos", [thePhotos count]);
+}
+
+- (void)photosetOfferedPreviewImageForIndexOnLoaded:(UIImage *)previewImage :(NSUInteger)forTableIndex
+{
+    
+}
+
+- (void)photosLoaded:(BOOL)success
+{
+    
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest

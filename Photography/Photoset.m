@@ -16,6 +16,9 @@
 @synthesize photosetDescription;
 @synthesize photosetPhotos;
 @synthesize request;
+@synthesize countOfsuccesfullyLoadedPhotos;
+@synthesize delegate;
+@synthesize photosetIndex;
 
 - (id)initWithRawData:(NSString *)thePhotosetId :(NSInteger)thePhotosetCount :(NSString *)thePhotosetTitle :(NSString *)thePhotosetDescription
 {
@@ -26,6 +29,8 @@
         self.photosetCount = thePhotosetCount;
         self.photosetTitle = thePhotosetTitle;
         self.photosetDescription = thePhotosetDescription;
+        
+        self.countOfsuccesfullyLoadedPhotos = 0;
     }
     return self;
 }
@@ -41,6 +46,13 @@
         self.photosetDescription = [[photoSet objectForKey:@"description"] objectForKey:@"_content"];
         self.photosetPhotos = [[NSMutableArray alloc] init];
     }
+    return self;
+}
+
+- (id)initWithDictionaryAndIndex:(NSDictionary *)photoSet :(NSUInteger)index
+{
+    self = [self initWithDictionary:photoSet];
+    self.photosetIndex = index;
     return self;
 }
 
@@ -66,11 +78,23 @@
     [self.request startAsynchronous];
 }
 
+// This is where our photos tell us they have loaded their images succesfully
 - (void)imagesLoaded:(BOOL)success
 {
     if(success)
     {
-        NSLog(@"Image loaded here!");
+        self.countOfsuccesfullyLoadedPhotos += 1;
+    }
+    if(countOfsuccesfullyLoadedPhotos == [photosetPhotos count])
+    {
+        [[self delegate] photosLoaded:YES];
+        [[self delegate] photosetAtIndexHasLoadedPhotos:self.photosetIndex];
+        [[self delegate] photosetHasLoadedAllPhotos:self.photosetPhotos];
+        
+        Photo *firstPhoto = [self.photosetPhotos objectAtIndex:0];
+        Image *previewImage = [firstPhoto.photoImages objectAtIndex:0];
+        
+        [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:nil :self.photosetIndex];
     }
 }
 

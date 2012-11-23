@@ -17,15 +17,31 @@
 #define FLICKR_SECRET   @"608dd2303e2c4148"
 #define FLICKR_API_URL  @"http://api.flickr.com/services/rest/?"
 
+@protocol PhotoSetDelegate <NSObject>
+
+@required
+- (void) photosLoaded: (BOOL)success;
+- (void) photosetAtIndexHasLoadedPhotos: (NSUInteger)photosetIndex;
+- (void) photosetHasLoadedAllPhotos: (NSMutableArray *)thePhotos;
+- (void) photosetOfferedPreviewImageForIndexOnLoaded: (UIImage *)previewImage :(NSUInteger)forTableIndex;
+@end
+
 @interface Photoset : NSObject <ASIHTTPRequestDelegate, PhotoDelegate>
+{
+    id <PhotoSetDelegate> delegate;
+}
 @property (assign) NSString *photosetId;
 @property (assign) NSInteger photosetCount;
 @property (nonatomic, retain) NSString *photosetTitle;
 @property (nonatomic, retain) NSString *photosetDescription;
 @property (nonatomic, retain) NSMutableArray *photosetPhotos;
 @property (nonatomic, retain) ASIFormDataRequest *request;
+@property (assign) NSUInteger countOfsuccesfullyLoadedPhotos;
+@property (assign) NSUInteger photosetIndex;
+@property (retain) id delegate;
 
 - (id)initWithRawData:(NSString *)thePhotosetId :(NSInteger)thePhotosetCount :(NSString *)thePhotosetTitle :(NSString *)thePhotosetDescription;
 - (id)initWithDictionary:(NSDictionary *)photoSet;
+- (id)initWithDictionaryAndIndex:(NSDictionary *)photoSet :(NSUInteger)index;
 - (void)populatePhotos;
 @end
