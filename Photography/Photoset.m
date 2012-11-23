@@ -87,14 +87,11 @@
     }
     if(countOfsuccesfullyLoadedPhotos == [photosetPhotos count])
     {
-        [[self delegate] photosLoaded:YES];
-        [[self delegate] photosetAtIndexHasLoadedPhotos:self.photosetIndex];
-        [[self delegate] photosetHasLoadedAllPhotos:self.photosetPhotos];
-        
-        Photo *firstPhoto = [self.photosetPhotos objectAtIndex:0];
-        Image *previewImage = [firstPhoto.photoImages objectAtIndex:0];
-        
-        [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:nil :self.photosetIndex];
+        //[[self delegate] photosLoaded:YES];
+        //[[self delegate] photosetAtIndexHasLoadedPhotos:self.photosetIndex];
+        //[[self delegate] photosetHasLoadedAllPhotos:self.photosetPhotos];
+        Image *previewImage = [[self.photosetPhotos objectAtIndex:0] fetchImageOfType:@"Square"];
+        [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:previewImage :self.photosetIndex];
     }
 }
 

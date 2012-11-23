@@ -56,6 +56,25 @@
     [self.request startAsynchronous];
 }
 
+- (Image *)fetchImageOfType:(NSString *)sizeLabel
+{
+    if([self.photoImages count] > 0)
+    {
+        for(Image *imageOfType in self.photoImages)
+        {
+            if([imageOfType.imageLabel isEqualToString:sizeLabel])
+            {
+                return imageOfType;
+            }
+            else
+            {
+                return nil;
+            }
+        }
+    }
+    return nil;
+}
+
 - (void)requestFinished:(ASIHTTPRequest *)theRequest
 {
     NSString *responseString = [theRequest responseString];

@@ -37,4 +37,5 @@
 - (id)initWithRawData:(NSString *)thePhotoId :(NSString *)thePhotoTitle;
 - (id)initWithDictionary:(NSDictionary *)photo;
 - (void)populateImages;
+- (Image *)fetchImageOfType:(NSString *)sizeLabel;
 @end

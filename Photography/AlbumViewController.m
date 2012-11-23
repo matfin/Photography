@@ -132,24 +132,9 @@
     [self.albumsTable reloadData];
 }
 
-- (void)photosetAtIndexHasLoadedPhotos:(NSUInteger)photosetIndex
+- (void)photosetOfferedPreviewImageForIndexOnLoaded:(Image *)previewImage :(NSUInteger)forTableIndex
 {
-    NSLog(@"Photoset at index %i has loaded all photos", photosetIndex);
-}
-
-- (void)photosetHasLoadedAllPhotos:(NSMutableArray *)thePhotos
-{
-    NSLog(@"Photoset was loaded here with %i photos", [thePhotos count]);
-}
-
-- (void)photosetOfferedPreviewImageForIndexOnLoaded:(UIImage *)previewImage :(NSUInteger)forTableIndex
-{
-    
-}
-
-- (void)photosLoaded:(BOOL)success
-{
-    
+    NSLog(@"Can we load the image with %@ at index %i", [previewImage.imageSource absoluteString], forTableIndex);
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest
