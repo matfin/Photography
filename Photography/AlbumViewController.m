@@ -59,13 +59,17 @@
     
     [cell.photosetTitleLabel setText:photoSet.photosetTitle];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", photoSet.photosetCount]];
-    
+    [cell.photosetPreviewImageView setFrame:CGRectMake(10.0f, 14.0f, 50.0f, 50.0f)];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Something was tapped.");
+    PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:indexPath];
+    CGRect imageViewSize = [cell.imageView bounds];
+    
+    NSLog(@"On tap the width of the view is %f and the height is %f", imageViewSize.size.width, imageViewSize.size.height);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,7 +138,16 @@
 
 - (void)photosetOfferedPreviewImageForIndexOnLoaded:(Image *)previewImage :(NSUInteger)forTableIndex
 {
-    NSLog(@"Can we load the image with %@ at index %i", [previewImage.imageSource absoluteString], forTableIndex);
+    PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:forTableIndex inSection:0]];
+    
+    [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
+                                        placeholderImage:[UIImage imageNamed:@"tablecell-placeholder"]
+                                        success:^(UIImage *image, BOOL cached)
+                                        {
+                                        }
+                                        failure:nil
+     ];
+     
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest

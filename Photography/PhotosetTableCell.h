@@ -10,8 +10,8 @@
 
 @interface PhotosetTableCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIImageView *photosetPreviewImageView;
-@property (nonatomic, strong) IBOutlet UILabel *photosetTitleLabel;
-@property (nonatomic, strong) IBOutlet UILabel *photosetCountLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *photosetPreviewImageView;
+@property (nonatomic, retain) IBOutlet UILabel *photosetTitleLabel;
+@property (nonatomic, retain) IBOutlet UILabel *photosetCountLabel;
 
 @end
