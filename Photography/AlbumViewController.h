@@ -7,7 +7,6 @@
 //
 
 #import "AbstractViewController.h"
-#import "PhotosetTableCell.h"
 #import "Photoset.h"
 
 #define FLICKR_USER_ID  @"7994187@N06"

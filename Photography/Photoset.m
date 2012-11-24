@@ -87,12 +87,25 @@
     }
     if(countOfsuccesfullyLoadedPhotos == [photosetPhotos count])
     {
-        //[[self delegate] photosLoaded:YES];
-        //[[self delegate] photosetAtIndexHasLoadedPhotos:self.photosetIndex];
-        //[[self delegate] photosetHasLoadedAllPhotos:self.photosetPhotos];
         Image *previewImage = [[self.photosetPhotos objectAtIndex:0] fetchImageOfType:@"Square"];
         [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:previewImage :self.photosetIndex];
     }
+}
+
+- (UITableViewCell *)selfPopulatedTableViewCellForTableView:(UITableView *)tableView
+{
+     static NSString *photosetTableCellIdentifier = @"PhotosetTableCell";
+     
+     PhotosetTableCell *cell = (PhotosetTableCell *)[tableView dequeueReusableCellWithIdentifier:photosetTableCellIdentifier];
+     if(cell == nil)
+     {
+         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
+         cell = [nib objectAtIndex:0];
+     }
+    [cell.photosetTitleLabel setText:self.photosetTitle];
+    [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];
+    [cell.photosetPreviewImageView setFrame:CGRectMake(5.0f, 5.0f, 60.0f, 60.0f)];
+    return cell;
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest

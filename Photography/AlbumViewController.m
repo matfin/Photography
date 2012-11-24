@@ -47,20 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Photoset *photoSet = [self.photoSets objectAtIndex:indexPath.row];
-    static NSString *photosetTableCellIdentifier = @"PhotosetTableCell";
-    
-    PhotosetTableCell *cell = (PhotosetTableCell *)[tableView dequeueReusableCellWithIdentifier:photosetTableCellIdentifier];
-    if(cell == nil)
-    {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    [cell.photosetTitleLabel setText:photoSet.photosetTitle];
-    [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", photoSet.photosetCount]];
-    [cell.photosetPreviewImageView setFrame:CGRectMake(10.0f, 14.0f, 50.0f, 50.0f)];
-    return cell;
+    return [[self.photoSets objectAtIndex:indexPath.row] selfPopulatedTableViewCellForTableView:tableView];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,7 +61,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 78.0f;
+    return 70.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,9 +129,7 @@
     
     [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
                                         placeholderImage:[UIImage imageNamed:@"tablecell-placeholder"]
-                                        success:^(UIImage *image, BOOL cached)
-                                        {
-                                        }
+                                        success:nil
                                         failure:nil
      ];
      
