@@ -13,5 +13,5 @@
 @property (nonatomic, retain) IBOutlet UIImageView *photosetPreviewImageView;
 @property (nonatomic, retain) IBOutlet UILabel *photosetTitleLabel;
 @property (nonatomic, retain) IBOutlet UILabel *photosetCountLabel;
-
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *imagePreviewLoadingActivityIndicator;
 @end

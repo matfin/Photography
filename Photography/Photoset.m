@@ -94,14 +94,14 @@
 
 - (UITableViewCell *)selfPopulatedTableViewCellForTableView:(UITableView *)tableView
 {
-     static NSString *photosetTableCellIdentifier = @"PhotosetTableCell";
+    static NSString *photosetTableCellIdentifier = @"PhotosetTableCell";
      
-     PhotosetTableCell *cell = (PhotosetTableCell *)[tableView dequeueReusableCellWithIdentifier:photosetTableCellIdentifier];
-     if(cell == nil)
-     {
-         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
-         cell = [nib objectAtIndex:0];
-     }
+    PhotosetTableCell *cell = (PhotosetTableCell *)[tableView dequeueReusableCellWithIdentifier:photosetTableCellIdentifier];
+    if(cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
     [cell.photosetTitleLabel setText:self.photosetTitle];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];
     [cell.photosetPreviewImageView setFrame:CGRectMake(5.0f, 5.0f, 60.0f, 60.0f)];

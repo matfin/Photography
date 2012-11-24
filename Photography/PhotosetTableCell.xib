@@ -12,6 +12,7 @@
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
+			<string>IBUIActivityIndicatorView</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
@@ -46,7 +47,7 @@
 								<string key="NSFrame">{{12, 10}, {50, 50}}</string>
 								<reference key="NSSuperview" ref="613051875"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="724354925"/>
+								<reference key="NSNextKeyView" ref="608320988"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIAutoresizesSubviews">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -116,6 +117,19 @@
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
+							<object class="IBUIActivityIndicatorView" id="608320988">
+								<reference key="NSNextResponder" ref="613051875"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{19, 16}, {37, 37}}</string>
+								<reference key="NSSuperview" ref="613051875"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="724354925"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<bool key="IBUIOpaque">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHidesWhenStopped">NO</bool>
+								<int key="IBUIStyle">0</int>
+							</object>
 						</array>
 						<string key="NSFrameSize">{320, 69}</string>
 						<reference key="NSSuperview" ref="177417826"/>
@@ -169,6 +183,14 @@
 					</object>
 					<int key="connectionID">164</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">imagePreviewLoadingActivityIndicator</string>
+						<reference key="source" ref="177417826"/>
+						<reference key="destination" ref="608320988"/>
+					</object>
+					<int key="connectionID">167</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -196,6 +218,7 @@
 							<reference ref="724354925"/>
 							<reference ref="413798834"/>
 							<reference ref="988238389"/>
+							<reference ref="608320988"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -216,6 +239,11 @@
 						<reference key="object" ref="988238389"/>
 						<reference key="parent" ref="177417826"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">165</int>
+						<reference key="object" ref="608320988"/>
+						<reference key="parent" ref="177417826"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -225,6 +253,7 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="157.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="165.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.CustomClassName">PhotosetTableCell</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -233,7 +262,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">164</int>
+			<int key="maxID">167</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -241,11 +270,16 @@
 					<string key="className">PhotosetTableCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="imagePreviewLoadingActivityIndicator">UIActivityIndicatorView</string>
 						<string key="photosetCountLabel">UILabel</string>
 						<string key="photosetPreviewImageView">UIImageView</string>
 						<string key="photosetTitleLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="imagePreviewLoadingActivityIndicator">
+							<string key="name">imagePreviewLoadingActivityIndicator</string>
+							<string key="candidateClassName">UIActivityIndicatorView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="photosetCountLabel">
 							<string key="name">photosetCountLabel</string>
 							<string key="candidateClassName">UILabel</string>

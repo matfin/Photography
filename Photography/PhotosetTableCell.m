@@ -13,5 +13,6 @@
 @synthesize photosetPreviewImageView;
 @synthesize photosetTitleLabel;
 @synthesize photosetCountLabel;
+@synthesize imagePreviewLoadingActivityIndicator;
 
 @end
