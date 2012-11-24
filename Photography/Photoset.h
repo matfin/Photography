@@ -46,4 +46,5 @@
 - (id)initWithDictionaryAndIndex:(NSDictionary *)photoSet :(NSUInteger)index;
 - (void)populatePhotos;
 - (UITableViewCell *)selfPopulatedTableViewCellForTableView:(UITableView *)tableView;
+- (void)thisPhotosetHasBeenSelected;
 @end

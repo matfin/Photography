@@ -27,6 +27,8 @@
 		C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92396CB163DA532002E2DB7 /* AlbumViewController.xib */; };
 		C99F399E1660FCA9004E981F /* tablecell-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F399C1660FCA9004E981F /* tablecell-placeholder.png */; };
 		C99F399F1660FCA9004E981F /* tablecell-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F399D1660FCA9004E981F /* tablecell-placeholder@2x.png */; };
+		C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F39A216614AB4004E981F /* PhotosetViewController.m */; };
+		C99F39A516614AB4004E981F /* PhotosetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99F39A316614AB4004E981F /* PhotosetViewController.xib */; };
 		C9B3CA13165C329B00B55D75 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA12165C329B00B55D75 /* Photo.m */; };
 		C9B3CA17165C32B100B55D75 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA16165C32B100B55D75 /* Image.m */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,9 @@
 		C92396CB163DA532002E2DB7 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
 		C99F399C1660FCA9004E981F /* tablecell-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tablecell-placeholder.png"; sourceTree = "<group>"; };
 		C99F399D1660FCA9004E981F /* tablecell-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tablecell-placeholder@2x.png"; sourceTree = "<group>"; };
+		C99F39A116614AB4004E981F /* PhotosetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosetViewController.h; sourceTree = "<group>"; };
+		C99F39A216614AB4004E981F /* PhotosetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosetViewController.m; sourceTree = "<group>"; };
+		C99F39A316614AB4004E981F /* PhotosetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosetViewController.xib; sourceTree = "<group>"; };
 		C9B3CA11165C329B00B55D75 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C9B3CA12165C329B00B55D75 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		C9B3CA15165C32B100B55D75 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -161,6 +166,8 @@
 				C92396BC163D9F7D002E2DB7 /* AbstractViewController.m */,
 				C92396BE163D9FA3002E2DB7 /* AlbumViewController.h */,
 				C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */,
+				C99F39A116614AB4004E981F /* PhotosetViewController.h */,
+				C99F39A216614AB4004E981F /* PhotosetViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 		C92396A1163D82F0002E2DB7 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				C99F39A316614AB4004E981F /* PhotosetViewController.xib */,
 				C9103E66165AF44A0066F401 /* PhotosetTableCell.xib */,
 				C92396CB163DA532002E2DB7 /* AlbumViewController.xib */,
 			);
@@ -272,6 +280,7 @@
 				C9103E67165AF44A0066F401 /* PhotosetTableCell.xib in Resources */,
 				C99F399E1660FCA9004E981F /* tablecell-placeholder.png in Resources */,
 				C99F399F1660FCA9004E981F /* tablecell-placeholder@2x.png in Resources */,
+				C99F39A516614AB4004E981F /* PhotosetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +317,7 @@
 				C9103E5D165AD5B00066F401 /* PhotosetTableCell.m in Sources */,
 				C9B3CA13165C329B00B55D75 /* Photo.m in Sources */,
 				C9B3CA17165C32B100B55D75 /* Image.m in Sources */,
+				C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

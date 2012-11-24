@@ -52,11 +52,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Something was tapped.");
-    PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:indexPath];
-    CGRect imageViewSize = [cell.imageView bounds];
-    
-    NSLog(@"On tap the width of the view is %f and the height is %f", imageViewSize.size.width, imageViewSize.size.height);
+    [[self.photoSets objectAtIndex:indexPath.row] thisPhotosetHasBeenSelected];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,6 +128,7 @@
                                         success:^(UIImage *image, BOOL cached)
                                         {
                                             [cell.imagePreviewLoadingActivityIndicator stopAnimating];
+                                            cell.imagePreviewLoadingActivityIndicator = nil;
                                             [cell.photosetPreviewImageView setHidden:NO];
                                         }
                                         failure:nil

@@ -46,7 +46,7 @@
     int navBarWidth = self.navigationController.navigationBar.frame.size.width;
     int navBarHeight = self.navigationController.navigationBar.frame.size.height;
     
-    UILabel *navBarTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, navBarWidth - 100, navBarHeight)];
+    UILabel *navBarTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 100, navBarWidth - 140, navBarHeight)];
     [navBarTitleLabel setBackgroundColor:[UIColor clearColor]];
     [navBarTitleLabel setFont:[UIFont fontWithName:@"Arial" size:20.0f]];
     [navBarTitleLabel setTextColor:[UIColor whiteColor]];
