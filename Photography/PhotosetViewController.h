@@ -7,7 +7,12 @@
 //
 
 #import "AbstractViewController.h"
+#import "Photoset.h"
 
 @interface PhotosetViewController : AbstractViewController
-
+{
+    Photoset *photoSet;
+}
+@property (unsafe_unretained, nonatomic) IBOutlet UIScrollView *photosetScrollView;
+@property (nonatomic, retain) Photoset *photoSet;
 @end

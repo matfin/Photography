@@ -7,6 +7,8 @@
 //
 
 #import "Photoset.h"
+#import "PhotosetViewController.h"
+#import "AppDelegate.h"
 
 @implementation Photoset
 
@@ -114,6 +116,10 @@
 - (void)thisPhotosetHasBeenSelected
 {
     NSLog(@"Photoset selected: %@", self.photosetTitle);
+    PhotosetViewController *photosetViewController = [[PhotosetViewController alloc] initWithNavBarTitle:self.photosetTitle];
+    photosetViewController.photoSet = self;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.navigationController pushViewController:photosetViewController animated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest
