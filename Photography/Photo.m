@@ -66,14 +66,10 @@
 - (Image *)getImageFromSizeLabel:(NSString *)sizeLabel
 {
     for(Image *image in self.photoImages)
-    {            
+    {
         if([sizeLabel isEqualToString:image.imageLabel])
         {
             return image;
-        }
-        else
-        {
-            return nil;
         }
     }
     return nil;

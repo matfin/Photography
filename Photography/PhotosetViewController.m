@@ -29,22 +29,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSUInteger index = 0;
+    NSUInteger index = 1;
     float containerX = 5.0f;
     float containerY = 5.0f;
     for(Photo *photo in self.photoSet.photosetPhotos)
     {
-        if(index > 2 && index % 2 == 0)
+        if(index % 2 == 0)
         {
-            containerY += 155.0f;
-            containerX = 165.0f;
+            containerX = 160.0f;
         }
         else
         {
             containerX = 5.0f;
         }
-        
-        [photo speakAllImages];
+        if(index > 2 && index % 2 != 0)
+        {
+            containerY += 160.0f;
+        }
         
         CGRect photoContainerViewFrame = CGRectMake(containerX, containerY, 150.0f, 150.0f);
                 

@@ -46,7 +46,6 @@
                             placeholderImage:nil
                             success:^(UIImage *image, BOOL cached)
                             {
-                                NSLog(@"We loaded the photo image in ok!");
                             }
                             failure:nil
      ];
