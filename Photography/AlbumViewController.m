@@ -129,7 +129,11 @@
     
     [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
                                         placeholderImage:[UIImage imageNamed:@"tablecell-placeholder"]
-                                        success:nil
+                                        success:^(UIImage *image, BOOL cached)
+                                        {
+                                            [cell.imagePreviewLoadingActivityIndicator stopAnimating];
+                                            [cell.photosetPreviewImageView setHidden:NO];
+                                        }
                                         failure:nil
      ];
      

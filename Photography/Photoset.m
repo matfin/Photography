@@ -105,6 +105,10 @@
     [cell.photosetTitleLabel setText:self.photosetTitle];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];
     [cell.photosetPreviewImageView setFrame:CGRectMake(5.0f, 5.0f, 60.0f, 60.0f)];
+    [cell.photosetPreviewImageView setHidden:YES];
+    [cell.imagePreviewLoadingActivityIndicator setHidesWhenStopped:YES];
+    [cell.imagePreviewLoadingActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [cell.imagePreviewLoadingActivityIndicator startAnimating];
     return cell;
 }
 
