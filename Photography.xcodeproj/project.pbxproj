@@ -25,10 +25,11 @@
 		C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */; };
 		C92396C9163DA44B002E2DB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92396C8163DA44B002E2DB7 /* CFNetwork.framework */; };
 		C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92396CB163DA532002E2DB7 /* AlbumViewController.xib */; };
-		C99F399E1660FCA9004E981F /* tablecell-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F399C1660FCA9004E981F /* tablecell-placeholder.png */; };
-		C99F399F1660FCA9004E981F /* tablecell-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F399D1660FCA9004E981F /* tablecell-placeholder@2x.png */; };
 		C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F39A216614AB4004E981F /* PhotosetViewController.m */; };
 		C99F39A516614AB4004E981F /* PhotosetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99F39A316614AB4004E981F /* PhotosetViewController.xib */; };
+		C99F39A9166172BC004E981F /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F39A8166172BC004E981F /* PhotoView.m */; };
+		C99F39AC1661752B004E981F /* photosetbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F39AA1661752B004E981F /* photosetbackground.png */; };
+		C99F39AD1661752B004E981F /* photosetbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F39AB1661752B004E981F /* photosetbackground@2x.png */; };
 		C9B3CA13165C329B00B55D75 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA12165C329B00B55D75 /* Photo.m */; };
 		C9B3CA17165C32B100B55D75 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA16165C32B100B55D75 /* Image.m */; };
 /* End PBXBuildFile section */
@@ -62,11 +63,13 @@
 		C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		C92396C8163DA44B002E2DB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C92396CB163DA532002E2DB7 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
-		C99F399C1660FCA9004E981F /* tablecell-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tablecell-placeholder.png"; sourceTree = "<group>"; };
-		C99F399D1660FCA9004E981F /* tablecell-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tablecell-placeholder@2x.png"; sourceTree = "<group>"; };
 		C99F39A116614AB4004E981F /* PhotosetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosetViewController.h; sourceTree = "<group>"; };
 		C99F39A216614AB4004E981F /* PhotosetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosetViewController.m; sourceTree = "<group>"; };
 		C99F39A316614AB4004E981F /* PhotosetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosetViewController.xib; sourceTree = "<group>"; };
+		C99F39A7166172BC004E981F /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		C99F39A8166172BC004E981F /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
+		C99F39AA1661752B004E981F /* photosetbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photosetbackground.png; sourceTree = "<group>"; };
+		C99F39AB1661752B004E981F /* photosetbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photosetbackground@2x.png"; sourceTree = "<group>"; };
 		C9B3CA11165C329B00B55D75 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C9B3CA12165C329B00B55D75 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		C9B3CA15165C32B100B55D75 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 		C9239677163D81C7002E2DB7 /* Photography */ = {
 			isa = PBXGroup;
 			children = (
+				C99F39A616617282004E981F /* CustomViews */,
 				C9103E58165AD5280066F401 /* TableCells */,
 				C92396A3163D8305002E2DB7 /* Resources */,
 				C92396A2163D82FC002E2DB7 /* Models */,
@@ -214,10 +218,19 @@
 		C92396A5163D83E5002E2DB7 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				C99F399C1660FCA9004E981F /* tablecell-placeholder.png */,
-				C99F399D1660FCA9004E981F /* tablecell-placeholder@2x.png */,
+				C99F39AA1661752B004E981F /* photosetbackground.png */,
+				C99F39AB1661752B004E981F /* photosetbackground@2x.png */,
 			);
 			name = icons;
+			sourceTree = "<group>";
+		};
+		C99F39A616617282004E981F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C99F39A7166172BC004E981F /* PhotoView.h */,
+				C99F39A8166172BC004E981F /* PhotoView.m */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,9 +291,9 @@
 				C9239688163D81C7002E2DB7 /* Default-568h@2x.png in Resources */,
 				C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */,
 				C9103E67165AF44A0066F401 /* PhotosetTableCell.xib in Resources */,
-				C99F399E1660FCA9004E981F /* tablecell-placeholder.png in Resources */,
-				C99F399F1660FCA9004E981F /* tablecell-placeholder@2x.png in Resources */,
 				C99F39A516614AB4004E981F /* PhotosetViewController.xib in Resources */,
+				C99F39AC1661752B004E981F /* photosetbackground.png in Resources */,
+				C99F39AD1661752B004E981F /* photosetbackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +331,7 @@
 				C9B3CA13165C329B00B55D75 /* Photo.m in Sources */,
 				C9B3CA17165C32B100B55D75 /* Image.m in Sources */,
 				C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */,
+				C99F39A9166172BC004E981F /* PhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

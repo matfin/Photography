@@ -39,7 +39,6 @@
 
 - (void)populateImages
 {
-    self.photoImages = [[NSMutableArray alloc] init];
     NSURL *flickrURL = [NSURL URLWithString:FLICKR_API_URL];
     /*
      *  Set up Flickr API url with params for fetching Photosets
@@ -56,20 +55,25 @@
     [self.request startAsynchronous];
 }
 
-- (Image *)fetchImageOfType:(NSString *)sizeLabel
+- (void)speakAllImages
 {
-    if([self.photoImages count] > 0)
+    for(Image *image in self.photoImages)
     {
-        for(Image *imageOfType in self.photoImages)
+        NSLog(@"Image size label for my images is: %@", image.imageLabel);
+    }
+}
+
+- (Image *)getImageFromSizeLabel:(NSString *)sizeLabel
+{
+    for(Image *image in self.photoImages)
+    {            
+        if([sizeLabel isEqualToString:image.imageLabel])
         {
-            if([imageOfType.imageLabel isEqualToString:sizeLabel])
-            {
-                return imageOfType;
-            }
-            else
-            {
-                return nil;
-            }
+            return image;
+        }
+        else
+        {
+            return nil;
         }
     }
     return nil;
@@ -79,7 +83,7 @@
 {
     NSString *responseString = [theRequest responseString];
     NSDictionary *resultsDictionary = [responseString objectFromJSONString];
-    
+    self.photoImages = [[NSMutableArray alloc] init];
     NSDictionary *flickrImages = [[resultsDictionary objectForKey:@"sizes"] objectForKey:@"size"];
     for(NSDictionary *flickrImage in flickrImages)
     {
@@ -104,6 +108,7 @@
 
 - (void)dealloc
 {
+    NSLog(@"Deallocing photo");
     [self.request clearDelegatesAndCancel];
     [self.request setDelegate:nil];
     self.request = nil;

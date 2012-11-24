@@ -47,4 +47,9 @@
     return self;
 }
 
+- (void)dealloc
+{
+    NSLog(@"Deallocing this image");
+}
+
 @end

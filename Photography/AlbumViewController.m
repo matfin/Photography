@@ -124,7 +124,7 @@
     PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:forTableIndex inSection:0]];
     
     [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
-                                        placeholderImage:[UIImage imageNamed:@"tablecell-placeholder"]
+                                        placeholderImage:nil
                                         success:^(UIImage *image, BOOL cached)
                                         {
                                             [cell.imagePreviewLoadingActivityIndicator stopAnimating];

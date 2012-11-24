@@ -89,7 +89,7 @@
     }
     if(countOfsuccesfullyLoadedPhotos == [photosetPhotos count])
     {
-        Image *previewImage = [[self.photosetPhotos objectAtIndex:0] fetchImageOfType:@"Square"];
+        Image *previewImage = [[self.photosetPhotos objectAtIndex:0] getImageFromSizeLabel:@"Square"];
         [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:previewImage :self.photosetIndex];
     }
 }
@@ -104,6 +104,15 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PhotosetTableCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    
+    UIImageView *cellBackgroundImageView = [[UIImageView alloc] initWithFrame:[cell bounds]];
+    [cellBackgroundImageView setBackgroundColor:[UIColor clearColor]];
+    [cellBackgroundImageView setOpaque:NO];
+    [cellBackgroundImageView setImage:[UIImage imageNamed:@"photosetbackground"]];
+    [cellBackgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
+    
+    //[cell setBackgroundView:cellBackgroundImageView];
+    
     [cell.photosetTitleLabel setText:self.photosetTitle];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];
     [cell.photosetPreviewImageView setFrame:CGRectMake(5.0f, 5.0f, 60.0f, 60.0f)];

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 #import "JSONKit.h"
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
@@ -37,5 +38,6 @@
 - (id)initWithRawData:(NSString *)thePhotoId :(NSString *)thePhotoTitle;
 - (id)initWithDictionary:(NSDictionary *)photo;
 - (void)populateImages;
-- (Image *)fetchImageOfType:(NSString *)sizeLabel;
+- (void)speakAllImages;
+- (Image *)getImageFromSizeLabel:(NSString *)sizeLabel;
 @end

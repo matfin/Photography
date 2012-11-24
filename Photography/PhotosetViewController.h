@@ -8,6 +8,7 @@
 
 #import "AbstractViewController.h"
 #import "Photoset.h"
+#import "PhotoView.h"
 
 @interface PhotosetViewController : AbstractViewController
 {
