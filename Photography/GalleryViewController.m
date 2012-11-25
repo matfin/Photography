@@ -29,8 +29,9 @@
     self.carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.carousel.delegate = self;
     self.carousel.dataSource = self;
-    self.carousel.decelerationRate = 0.25;
+    self.carousel.decelerationRate = 0.1;
     self.carousel.type = iCarouselTypeLinear;
+    self.carousel.currentItemIndex = selectedPhotoIndex;
     
     [self.view addSubview:self.carousel];
     
@@ -99,6 +100,8 @@
 {
     self.carousel.delegate = nil;
     self.carousel.dataSource = nil;
+    self.carousel = nil;
+    self.photoset = nil;
 }
 
 @end
