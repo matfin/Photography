@@ -36,7 +36,7 @@
     {
         if(index % 2 == 0)
         {
-            containerX = 160.0f;
+            containerX = 165.0f;
         }
         else
         {
@@ -44,14 +44,17 @@
         }
         if(index > 2 && index % 2 != 0)
         {
-            containerY += 160.0f;
+            containerY += 190.0f;
         }
         
-        CGRect photoContainerViewFrame = CGRectMake(containerX, containerY, 150.0f, 150.0f);
+        CGRect photoContainerViewFrame = CGRectMake(containerX, containerY, 150.0f, 180.0f);
                 
-        PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndSourceImageUrl:photoContainerViewFrame :index :[photo getImageFromSizeLabel:@"Large Square"].imageSource];
-        [self.photosetScrollView addSubview:photoView];
+        //PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndSourceImageUrl:photoContainerViewFrame :index :[photo getImageFromSizeLabel:@"Large Square"].imageSource];
         
+        PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndPhoto:photoContainerViewFrame :index :photo];
+        [self.photosetScrollView addSubview:photoView];
+        [self.photosetScrollView setContentSize:CGSizeMake(320.0f, (containerY + 190.0f))];
+        [self.photosetScrollView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
         index++;
     }
     // Do any additional setup after loading the view from its nib.

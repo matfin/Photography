@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImageView+WebCache.h"
+#import "Photo.h"
 
 @interface PhotoView : UIView
 
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
-@property (nonatomic, retain) NSURL *photoImageSource;
+@property (nonatomic, retain) Photo *photo;
 @property (assign) NSUInteger index;
 
-- (id)initWithFrameIndexAndSourceImageUrl:(CGRect)theFrame :(NSUInteger)theIndex :(NSURL *)thePhotoImageSource;
+- (id)initWithFrameIndexAndPhoto:(CGRect)theFrame :(NSUInteger)theIndex :(Photo *)thePhoto;
 - (void)startRendering;
 @end

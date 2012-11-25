@@ -122,6 +122,10 @@
 - (void)photosetOfferedPreviewImageForIndexOnLoaded:(Image *)previewImage :(NSUInteger)forTableIndex
 {
     PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:forTableIndex inSection:0]];
+    /*
+     *  Only enable user interaction when all json data for this photoset is fetched.
+     */
+    [cell setUserInteractionEnabled:YES];
     
     [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
                                         placeholderImage:nil
@@ -133,7 +137,6 @@
                                         }
                                         failure:nil
      ];
-     
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest

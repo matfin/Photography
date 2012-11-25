@@ -105,6 +105,12 @@
         cell = [nib objectAtIndex:0];
     }
     
+    /*
+     *  Disable user interaction for each cell until all Photosets are loaded via json.
+     *  A custom delegate called in AlbumViewController.m will re-enable user interaction.
+     */
+    //[cell setUserInteractionEnabled:NO];
+    
     UIImageView *cellBackgroundImageView = [[UIImageView alloc] initWithFrame:[cell bounds]];
     [cellBackgroundImageView setBackgroundColor:[UIColor clearColor]];
     [cellBackgroundImageView setOpaque:NO];
