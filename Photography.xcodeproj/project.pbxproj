@@ -31,6 +31,7 @@
 		C99F39AC1661752B004E981F /* photosetbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F39AA1661752B004E981F /* photosetbackground.png */; };
 		C99F39AD1661752B004E981F /* photosetbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F39AB1661752B004E981F /* photosetbackground@2x.png */; };
 		C99F39AF1661AAA1004E981F /* GoodFoot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C99F39AE1661AAA1004E981F /* GoodFoot.ttf */; };
+		C99F9446166266D500DCA309 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F9445166266D500DCA309 /* GalleryViewController.m */; };
 		C9B3CA13165C329B00B55D75 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA12165C329B00B55D75 /* Photo.m */; };
 		C9B3CA17165C32B100B55D75 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA16165C32B100B55D75 /* Image.m */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,8 @@
 		C99F39AA1661752B004E981F /* photosetbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photosetbackground.png; sourceTree = "<group>"; };
 		C99F39AB1661752B004E981F /* photosetbackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photosetbackground@2x.png"; sourceTree = "<group>"; };
 		C99F39AE1661AAA1004E981F /* GoodFoot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GoodFoot.ttf; sourceTree = "<group>"; };
+		C99F9444166266D500DCA309 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		C99F9445166266D500DCA309 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		C9B3CA11165C329B00B55D75 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C9B3CA12165C329B00B55D75 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		C9B3CA15165C32B100B55D75 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */,
 				C99F39A116614AB4004E981F /* PhotosetViewController.h */,
 				C99F39A216614AB4004E981F /* PhotosetViewController.m */,
+				C99F9444166266D500DCA309 /* GalleryViewController.h */,
+				C99F9445166266D500DCA309 /* GalleryViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				C9B3CA17165C32B100B55D75 /* Image.m in Sources */,
 				C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */,
 				C99F39A9166172BC004E981F /* PhotoView.m in Sources */,
+				C99F9446166266D500DCA309 /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

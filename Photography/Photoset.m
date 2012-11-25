@@ -8,6 +8,7 @@
 
 #import "Photoset.h"
 #import "PhotosetViewController.h"
+#import "GalleryViewController.h"
 #import "AppDelegate.h"
 
 @implementation Photoset
@@ -129,6 +130,17 @@
     photosetViewController.photoSet = self;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate.navigationController pushViewController:photosetViewController animated:YES];
+}
+
+- (void)photoSelectedToViewInGallery:(NSUInteger)selectedPhotoIndex;
+{
+    NSLog(@"Opening Gallery View with this photoset");
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    galleryViewController.photoset = self;
+    galleryViewController.selectedPhotoIndex = selectedPhotoIndex;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //[appDelegate.navigationController pushViewController:galleryViewController animated:YES];
+    [appDelegate.navigationController presentModalViewController:galleryViewController animated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest

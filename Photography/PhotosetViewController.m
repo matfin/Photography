@@ -58,6 +58,7 @@
 - (void)photoAtIndexHasBeenTapped:(NSUInteger)photoIndex
 {
     NSLog(@"The Photo at index %i was tapped", photoIndex);
+    [self.photoSet photoSelectedToViewInGallery:photoIndex];
 }
 
 - (void)didReceiveMemoryWarning

@@ -47,4 +47,5 @@
 - (void)populatePhotos;
 - (UITableViewCell *)selfPopulatedTableViewCellForTableView:(UITableView *)tableView;
 - (void)thisPhotosetHasBeenSelected;
+- (void)photoSelectedToViewInGallery:(NSUInteger)selectedPhotoIndex;
 @end
