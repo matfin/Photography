@@ -44,19 +44,18 @@
         }
         
         CGRect photoContainerViewFrame = CGRectMake(containerX, containerY, 150.0f, 180.0f);
-                
-        //PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndSourceImageUrl:photoContainerViewFrame :index :[photo getImageFromSizeLabel:@"Large Square"].imageSource];
-        
         PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndPhoto:photoContainerViewFrame :index - 1 :photo];
+        [photoView setDelegate:self];
         [self.photosetScrollView addSubview:photoView];
         [self.photosetScrollView setContentSize:CGSizeMake(320.0f, (containerY + 190.0f))];
         [self.photosetScrollView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
         index++;
     }
+    
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)photoAtIndexTapped:(NSUInteger)photoIndex
+- (void)photoAtIndexHasBeenTapped:(NSUInteger)photoIndex
 {
     NSLog(@"The Photo at index %i was tapped", photoIndex);
 }

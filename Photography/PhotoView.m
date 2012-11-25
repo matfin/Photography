@@ -16,15 +16,6 @@
 @synthesize index;
 @synthesize delegate;
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (id)initWithFrameIndexAndPhoto:(CGRect)theFrame :(NSUInteger)theIndex :(Photo *)thePhoto
 {
     self = [super initWithFrame:theFrame];
@@ -80,8 +71,7 @@
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"Photo tapped on at index: %i", self.index);
-    //[[self delegate] photoAtIndexTapped:self.index];
+    [[self delegate] photoAtIndexHasBeenTapped:self.index];
 }
 
 @end

@@ -11,11 +11,9 @@
 #import "UIImageView+WebCache.h"
 #import "Photo.h"
 
-
 @protocol PhotoTapDelegate <NSObject>
-
 @optional
-- (void)photoAtIndexTapped: (NSUInteger)photoIndex;
+- (void)photoAtIndexHasBeenTapped:(NSUInteger)photoIndex;
 @end
 
 @interface PhotoView : UIView
@@ -31,5 +29,6 @@
 
 - (id)initWithFrameIndexAndPhoto:(CGRect)theFrame :(NSUInteger)theIndex :(Photo *)thePhoto;
 - (void)loadView;
-- (void)handleSingleTap;
+- (void)shadow;
+- (void)handleSingleTap:(UITapGestureRecognizer *)sender;
 @end
