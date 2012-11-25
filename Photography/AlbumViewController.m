@@ -13,6 +13,7 @@
 @synthesize albumsTable;
 @synthesize photoSets;
 @synthesize request;
+@synthesize numberOfPhotosetsLoaded;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,7 @@
     [self.albumsTable setDataSource:self];
     [self.albumsTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
     self.photoSets = [[NSMutableArray alloc] init];
+    self.numberOfPhotosetsLoaded = 0;
     
     [self grabURLInBackground];
 }
@@ -125,7 +127,6 @@
     /*
      *  Only enable user interaction when all json data for this photoset is fetched.
      */
-    [cell setUserInteractionEnabled:YES];
     
     [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
                                         placeholderImage:nil
@@ -137,6 +138,16 @@
                                         }
                                         failure:nil
      ];
+}
+
+- (void)photosLoaded:(BOOL)success
+{
+    NSLog(@"A photoset has loaded all its photos");
+    self.numberOfPhotosetsLoaded++;
+    if(self.numberOfPhotosetsLoaded == [self.photoSets count])
+    {
+        NSLog(@"All photosets have been loaded");
+    }
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)theRequest

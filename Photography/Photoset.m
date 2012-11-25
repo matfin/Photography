@@ -92,6 +92,7 @@
     {
         Image *previewImage = [[self.photosetPhotos objectAtIndex:0] getImageFromSizeLabel:@"Square"];
         [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:previewImage :self.photosetIndex];
+        [[self delegate] photosLoaded:YES];
     }
 }
 
@@ -110,7 +111,6 @@
      *  Disable user interaction for each cell until all Photosets are loaded via json.
      *  A custom delegate called in AlbumViewController.m will re-enable user interaction.
      */
-    //[cell setUserInteractionEnabled:NO];
     
     [cell setBackgroundColor:[UIColor clearColor]];
     
@@ -139,7 +139,6 @@
     galleryViewController.photoset = self;
     galleryViewController.selectedPhotoIndex = selectedPhotoIndex;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    //[appDelegate.navigationController pushViewController:galleryViewController animated:YES];
     [appDelegate.navigationController presentModalViewController:galleryViewController animated:YES];
 }
 

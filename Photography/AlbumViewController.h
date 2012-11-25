@@ -19,6 +19,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
 @property (nonatomic, retain) NSMutableArray *photoSets;
 @property (nonatomic, retain) ASIFormDataRequest *request;
+@property (assign) NSUInteger numberOfPhotosetsLoaded;
 
 - (void)grabURLInBackground;
 
