@@ -12,6 +12,7 @@
 
 @synthesize photo;
 @synthesize photoImageView;
+@synthesize photoTitleLabel;
 @synthesize index;
 
 - (id)initWithFrame:(CGRect)frame
@@ -35,13 +36,26 @@
     return self;
 }
 
+- (void)shadow
+{
+    self.layer.masksToBounds = NO;
+    self.layer.cornerRadius = 0;
+    self.layer.shadowOffset = CGSizeMake(-5, 10);
+    self.layer.shadowRadius = 5;
+    self.layer.shadowOpacity = 0.5;
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+}
+
 - (void)startRendering
 {
-    NSLog(@"Start rendering this?");
     [self setBackgroundColor:[UIColor whiteColor]];
-    
+    [self shadow];
     self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2.5f, 2.5f, 145.0f, 145.0f)];
     [self.photoImageView setContentMode:UIViewContentModeScaleAspectFit];
+    self.photoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(00.0f, 155.0f, 145.0f, 25.0f)];
+    [self.photoTitleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:16.0f]];
+    [self.photoTitleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.photoTitleLabel setText:photo.photoTitle];
     
     [self.photoImageView    setImageWithURL:[photo getImageFromSizeLabel:@"Large Square"].imageSource
                             placeholderImage:nil
@@ -57,6 +71,7 @@
      ];
     
     [self addSubview:self.photoImageView];
+    [self addSubview:photoTitleLabel];
 }
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
 #import "Photo.h"
 
 @interface PhotoView : UIView
 
 @property (nonatomic, retain) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, retain) IBOutlet UILabel *photoTitleLabel;
 @property (nonatomic, retain) Photo *photo;
 @property (assign) NSUInteger index;
 
