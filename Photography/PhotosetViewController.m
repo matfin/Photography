@@ -47,7 +47,7 @@
                 
         //PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndSourceImageUrl:photoContainerViewFrame :index :[photo getImageFromSizeLabel:@"Large Square"].imageSource];
         
-        PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndPhoto:photoContainerViewFrame :index :photo];
+        PhotoView *photoView = [[PhotoView alloc] initWithFrameIndexAndPhoto:photoContainerViewFrame :index - 1 :photo];
         [self.photosetScrollView addSubview:photoView];
         [self.photosetScrollView setContentSize:CGSizeMake(320.0f, (containerY + 190.0f))];
         [self.photosetScrollView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];

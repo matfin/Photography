@@ -71,20 +71,16 @@
                             }
      ];
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self addGestureRecognizer:singleTap];
+    
     [self addSubview:self.photoImageView];
     [self addSubview:photoTitleLabel];
-    [self addTapBehaviour];
 }
 
-- (void)addTapBehaviour
+- (void)handleSingleTap:(UITapGestureRecognizer *)sender
 {
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
-    [singleTap setNumberOfTapsRequired:1];
-    [self addGestureRecognizer:singleTap];
-}
-
-- (void)handleSingleTap
-{
+    NSLog(@"Photo tapped on at index: %i", self.index);
     //[[self delegate] photoAtIndexTapped:self.index];
 }
 

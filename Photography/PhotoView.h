@@ -31,6 +31,5 @@
 
 - (id)initWithFrameIndexAndPhoto:(CGRect)theFrame :(NSUInteger)theIndex :(Photo *)thePhoto;
 - (void)loadView;
-- (void)addTapBehaviour;
 - (void)handleSingleTap;
 @end
