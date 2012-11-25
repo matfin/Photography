@@ -139,8 +139,8 @@
     galleryViewController.photoset = self;
     galleryViewController.selectedPhotoIndex = selectedPhotoIndex;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.navigationController pushViewController:galleryViewController animated:YES];
-    //[appDelegate.navigationController presentModalViewController:galleryViewController animated:YES];
+    //[appDelegate.navigationController pushViewController:galleryViewController animated:YES];
+    [appDelegate.navigationController presentModalViewController:galleryViewController animated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest

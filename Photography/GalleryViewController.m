@@ -32,6 +32,7 @@
     self.carousel.decelerationRate = 0.1;
     self.carousel.type = iCarouselTypeLinear;
     self.carousel.currentItemIndex = selectedPhotoIndex;
+    [self.carousel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
     
     [self.view addSubview:self.carousel];
     
@@ -44,6 +45,7 @@
     self.carousel.delegate = nil;
     self.carousel.dataSource = nil;
     self.carousel = nil;
+    self.photoset = nil;
 }
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
@@ -51,43 +53,68 @@
     return [self.photoset.photosetPhotos count];
 }
 
-- (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index reusingView:(UIView *)view
-{
-    return nil;
-}
-
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    /*
-    if(view == nil)
-    {
-        view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
-    }
-    */
-    
     view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
     
     UIImageView *photoImageView = nil;
+    Photo *photo = [self.photoset.photosetPhotos objectAtIndex:index];
     
-    Image *image = [[self.photoset.photosetPhotos objectAtIndex:index] getImageFromSizeLabel:@"Small 320"];
-    photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, view.bounds.size.width, view.bounds.size.height)];
+    UIButton *backButton = nil;
+    backButton = [[UIButton alloc] initWithFrame:CGRectMake(250.0f, 10.0f, 65.0f, 30.0f)];
+    [backButton addTarget:self action:@selector(closeAndGoBack) forControlEvents:UIControlEventTouchDown];
+    [backButton setTitle:@"Back" forState:UIControlStateNormal];
+    [backButton.titleLabel setTextColor:[UIColor whiteColor]];
+    [backButton.titleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:24.0f]];
+    [backButton.layer setBackgroundColor:[UIColor blackColor].CGColor];
+    [backButton.layer setBorderWidth:1.0f];
+    [backButton.layer setBorderColor:[UIColor blackColor].CGColor];
+    [backButton.layer setCornerRadius:10.0f];
+    
+    
+    UILabel *albumTitleLabel = nil;
+    albumTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 50.0f, view.bounds.size.width, 40.0f)];
+    [albumTitleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:30.0f]];
+    [albumTitleLabel setTextAlignment:NSTextAlignmentCenter];
+    [albumTitleLabel setBackgroundColor:[UIColor clearColor]];
+    [albumTitleLabel setTextColor:[UIColor blackColor]];
+    [albumTitleLabel setText:self.photoset.photosetTitle];
+    
+    Image *image = [photo getImageFromSizeLabel:@"Small 320"];
+    photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, (view.bounds.size.height / 2) - 120, view.bounds.size.width, 240.0f)];
     [photoImageView setContentMode:UIViewContentModeScaleAspectFit];
     [photoImageView     setImageWithURL:   image.imageSource
                         placeholderImage:nil
                         success:^(UIImage *image, BOOL cached)
                         {
-                            NSLog(@"Large square image download succesfully");
                             //[photoImageView setImage:image];
                         }
                         failure:^(NSError *error)
                         {
-                            NSLog(@"There was an error downloading the large square image: %@", [error  localizedDescription]);
+                            NSLog(@"There was an error downloading the large square image: %@",[error  localizedDescription]);
                         }
     ];
     
+    UILabel *photoTitleLabel = nil;
+    photoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 370.0f, view.bounds.size.width, 35.0f)];
+    [photoTitleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:25.0f]];
+    [photoTitleLabel setTextAlignment:NSTextAlignmentCenter];
+    [photoTitleLabel setBackgroundColor:[UIColor clearColor]];
+    [photoTitleLabel setTextColor:[UIColor blackColor]];
+    [photoTitleLabel setText:photo.photoTitle];
+    
+    [view addSubview:albumTitleLabel];
     [view addSubview:photoImageView];
+    [view addSubview:photoTitleLabel];
+    [view addSubview:backButton];
     
     return view;
+}
+
+- (void)closeAndGoBack
+{
+    NSLog(@"Go back??");
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

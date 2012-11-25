@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "iCarousel.h"
 #import "UIImageView+WebCache.h"
 #import "Photoset.h"
