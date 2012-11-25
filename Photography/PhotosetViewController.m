@@ -8,10 +8,6 @@
 
 #import "PhotosetViewController.h"
 
-@interface PhotosetViewController ()
-
-@end
-
 @implementation PhotosetViewController
 
 @synthesize photosetScrollView;
@@ -58,6 +54,11 @@
         index++;
     }
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)photoAtIndexTapped:(NSUInteger)photoIndex
+{
+    NSLog(@"The Photo at index %i was tapped", photoIndex);
 }
 
 - (void)didReceiveMemoryWarning

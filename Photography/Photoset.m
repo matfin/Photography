@@ -111,13 +111,7 @@
      */
     //[cell setUserInteractionEnabled:NO];
     
-    UIImageView *cellBackgroundImageView = [[UIImageView alloc] initWithFrame:[cell bounds]];
-    [cellBackgroundImageView setBackgroundColor:[UIColor clearColor]];
-    [cellBackgroundImageView setOpaque:NO];
-    [cellBackgroundImageView setImage:[UIImage imageNamed:@"photosetbackground"]];
-    [cellBackgroundImageView setContentMode:UIViewContentModeScaleAspectFit];
-    
-    //[cell setBackgroundView:cellBackgroundImageView];
+    [cell setBackgroundColor:[UIColor clearColor]];
     
     [cell.photosetTitleLabel setText:self.photosetTitle];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];

@@ -33,7 +33,7 @@
     [super viewDidLoad];
     [self.albumsTable setDelegate:self];
     [self.albumsTable setDataSource:self];
-    
+    [self.albumsTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
     self.photoSets = [[NSMutableArray alloc] init];
     
     [self grabURLInBackground];

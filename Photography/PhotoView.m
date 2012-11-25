@@ -14,6 +14,7 @@
 @synthesize photoImageView;
 @synthesize photoTitleLabel;
 @synthesize index;
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -31,7 +32,7 @@
     {
         self.index = theIndex;
         self.photo = thePhoto;
-        [self startRendering];
+        [self loadView];
     }
     return self;
 }
@@ -46,7 +47,7 @@
     self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
 }
 
-- (void)startRendering
+- (void)loadView
 {
     [self setBackgroundColor:[UIColor whiteColor]];
     [self shadow];
@@ -72,6 +73,19 @@
     
     [self addSubview:self.photoImageView];
     [self addSubview:photoTitleLabel];
+    [self addTapBehaviour];
+}
+
+- (void)addTapBehaviour
+{
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:nil];
+    [singleTap setNumberOfTapsRequired:1];
+    [self addGestureRecognizer:singleTap];
+}
+
+- (void)handleSingleTap
+{
+    //[[self delegate] photoAtIndexTapped:self.index];
 }
 
 @end

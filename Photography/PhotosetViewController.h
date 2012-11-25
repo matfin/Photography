@@ -10,7 +10,7 @@
 #import "Photoset.h"
 #import "PhotoView.h"
 
-@interface PhotosetViewController : AbstractViewController
+@interface PhotosetViewController : AbstractViewController <PhotoTapDelegate>
 {
     Photoset *photoSet;
 }
