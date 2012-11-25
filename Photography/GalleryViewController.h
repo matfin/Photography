@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import "UIImageView+WebCache.h"
 #import "Photoset.h"
 
 @interface GalleryViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>

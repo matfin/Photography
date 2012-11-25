@@ -26,8 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.carousel = [[iCarousel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.carousel.delegate = self;
     self.carousel.dataSource = self;
+    self.carousel.decelerationRate = 0.25;
+    self.carousel.type = iCarouselTypeLinear;
+    
+    [self.view addSubview:self.carousel];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -41,7 +47,7 @@
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    return [photoset.photosetPhotos count];
+    return [self.photoset.photosetPhotos count];
 }
 
 - (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index reusingView:(UIView *)view
@@ -51,7 +57,36 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    return nil;
+    /*
+    if(view == nil)
+    {
+        view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
+    }
+    */
+    
+    view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    UIImageView *photoImageView = nil;
+    
+    Image *image = [[self.photoset.photosetPhotos objectAtIndex:index] getImageFromSizeLabel:@"Small 320"];
+    photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, view.bounds.size.width, view.bounds.size.height)];
+    [photoImageView setContentMode:UIViewContentModeScaleAspectFit];
+    [photoImageView     setImageWithURL:   image.imageSource
+                        placeholderImage:nil
+                        success:^(UIImage *image, BOOL cached)
+                        {
+                            NSLog(@"Large square image download succesfully");
+                            //[photoImageView setImage:image];
+                        }
+                        failure:^(NSError *error)
+                        {
+                            NSLog(@"There was an error downloading the large square image: %@", [error  localizedDescription]);
+                        }
+    ];
+    
+    [view addSubview:photoImageView];
+    
+    return view;
 }
 
 - (void)didReceiveMemoryWarning
