@@ -10,9 +10,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "iCarousel.h"
 #import "UIImageView+WebCache.h"
+#import "AbstractViewController.h"
 #import "Photoset.h"
 
-@interface GalleryViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+@interface GalleryViewController : AbstractViewController <iCarouselDataSource, iCarouselDelegate>
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (nonatomic, retain) Photoset *photoset;

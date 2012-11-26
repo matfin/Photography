@@ -135,11 +135,11 @@
 - (void)photoSelectedToViewInGallery:(NSUInteger)selectedPhotoIndex;
 {
     NSLog(@"Opening Gallery View with this photoset");
-    GalleryViewController *galleryViewController = [[GalleryViewController alloc] init];
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc] initWithNavBarTitle:self.photosetTitle];
     galleryViewController.photoset = self;
     galleryViewController.selectedPhotoIndex = selectedPhotoIndex;
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.navigationController presentModalViewController:galleryViewController animated:YES];
+    [appDelegate.navigationController pushViewController:galleryViewController animated:YES];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)theRequest
