@@ -76,8 +76,8 @@
     ];
     
     UILabel *photoTitleLabel = nil;
-    photoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 330.0f, view.bounds.size.width, 35.0f)];
-    [photoTitleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:25.0f]];
+    photoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 340.0f, view.bounds.size.width, 35.0f)];
+    [photoTitleLabel setFont:[UIFont fontWithName:@"Lucida Console" size:18.0f]];
     [photoTitleLabel setTextAlignment:NSTextAlignmentCenter];
     [photoTitleLabel setBackgroundColor:[UIColor clearColor]];
     [photoTitleLabel setTextColor:[UIColor blackColor]];

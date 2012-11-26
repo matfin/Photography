@@ -34,6 +34,8 @@
 		C99F9446166266D500DCA309 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F9445166266D500DCA309 /* GalleryViewController.m */; };
 		C99F944D1662C01300DCA309 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F944C1662C01300DCA309 /* LoadingView.m */; };
 		C99F944F1662C94A00DCA309 /* Lucida Console.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C99F944E1662C94A00DCA309 /* Lucida Console.ttf */; };
+		C99F94521662F82D00DCA309 /* arrow_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F94501662F82D00DCA309 /* arrow_right.png */; };
+		C99F94531662F82D00DCA309 /* arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99F94511662F82D00DCA309 /* arrow_right@2x.png */; };
 		C9B3CA13165C329B00B55D75 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA12165C329B00B55D75 /* Photo.m */; };
 		C9B3CA17165C32B100B55D75 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B3CA16165C32B100B55D75 /* Image.m */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		C99F944B1662C01300DCA309 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		C99F944C1662C01300DCA309 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		C99F944E1662C94A00DCA309 /* Lucida Console.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lucida Console.ttf"; sourceTree = "<group>"; };
+		C99F94501662F82D00DCA309 /* arrow_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_right.png; sourceTree = "<group>"; };
+		C99F94511662F82D00DCA309 /* arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@2x.png"; sourceTree = "<group>"; };
 		C9B3CA11165C329B00B55D75 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		C9B3CA12165C329B00B55D75 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		C9B3CA15165C32B100B55D75 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 		C92396A5163D83E5002E2DB7 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				C99F94501662F82D00DCA309 /* arrow_right.png */,
+				C99F94511662F82D00DCA309 /* arrow_right@2x.png */,
 				C99F39AA1661752B004E981F /* photosetbackground.png */,
 				C99F39AB1661752B004E981F /* photosetbackground@2x.png */,
 			);
@@ -312,6 +318,8 @@
 				C99F39AD1661752B004E981F /* photosetbackground@2x.png in Resources */,
 				C99F39AF1661AAA1004E981F /* GoodFoot.ttf in Resources */,
 				C99F944F1662C94A00DCA309 /* Lucida Console.ttf in Resources */,
+				C99F94521662F82D00DCA309 /* arrow_right.png in Resources */,
+				C99F94531662F82D00DCA309 /* arrow_right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

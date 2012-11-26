@@ -45,7 +45,7 @@
     self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(2.5f, 2.5f, 145.0f, 145.0f)];
     [self.photoImageView setContentMode:UIViewContentModeScaleAspectFit];
     self.photoTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(00.0f, 155.0f, 145.0f, 25.0f)];
-    [self.photoTitleLabel setFont:[UIFont fontWithName:@"GoodFoot" size:16.0f]];
+    [self.photoTitleLabel setFont:[UIFont fontWithName:@"Lucida Console" size:16.0f]];
     [self.photoTitleLabel setTextAlignment:NSTextAlignmentCenter];
     [self.photoTitleLabel setText:photo.photoTitle];
     

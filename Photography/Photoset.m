@@ -115,7 +115,9 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     
     [cell.photosetTitleLabel setText:self.photosetTitle];
+    [cell.photosetTitleLabel setFont:[UIFont fontWithName:@"Lucida Console" size:15.0f]];
     [cell.photosetCountLabel setText:[NSString stringWithFormat:@"%i photos", self.photosetCount]];
+    [cell.photosetCountLabel setFont:[UIFont fontWithName:@"Lucida Console" size:10.0f]];
     [cell.photosetPreviewImageView setFrame:CGRectMake(5.0f, 5.0f, 60.0f, 60.0f)];
     [cell.imagePreviewLoadingActivityIndicator setHidesWhenStopped:YES];
     [cell.imagePreviewLoadingActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
