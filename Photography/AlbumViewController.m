@@ -7,6 +7,7 @@
 //
 
 #import "AlbumViewController.h"
+#import "AppDelegate.h"
 
 @implementation AlbumViewController
 
@@ -142,11 +143,17 @@
 
 - (void)photosLoaded:(BOOL)success
 {
-    NSLog(@"A photoset has loaded all its photos");
     self.numberOfPhotosetsLoaded++;
+    
+    float loadingProgress = (float)self.numberOfPhotosetsLoaded / (float)[self.photoSets count];
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.loadingView.progressIndicator setProgress:loadingProgress];
+    
     if(self.numberOfPhotosetsLoaded == [self.photoSets count])
     {
-        NSLog(@"All photosets have been loaded");
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate hideLoadingView];
     }
 }
 

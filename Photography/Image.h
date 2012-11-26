@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define TABLE_CELL_SIZE @"Square"
-#define ALBUM_TILE_SIZE @"Large Square"
-/*  Do the rest later   */
-
 @interface Image : NSObject
 
 @property (nonatomic, retain) NSString *imageLabel;

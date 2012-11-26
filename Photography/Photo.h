@@ -20,7 +20,7 @@
 @protocol PhotoDelegate <NSObject>
 
 @required
-- (void) imagesLoaded: (BOOL)success;
+- (void)imagesLoaded: (BOOL)success;
 @end
 
 @interface Photo : NSObject <ASIHTTPRequestDelegate>

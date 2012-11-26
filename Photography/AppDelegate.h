@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NavigationViewController.h"
 #import "AlbumViewController.h" 
+#import "LoadingView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,5 +18,9 @@
 
 /*  The view controllers we will be using   */
 @property (strong, nonatomic) AlbumViewController *albumViewController;
+@property (strong, nonatomic) LoadingView *loadingView;
+
+- (void)showLoadingView;
+- (void)hideLoadingView;
 
 @end

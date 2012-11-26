@@ -61,7 +61,7 @@
     Photo *photo = [self.photoset.photosetPhotos objectAtIndex:index];
     
     UIButton *backButton = nil;
-    backButton = [[UIButton alloc] initWithFrame:CGRectMake(250.0f, 10.0f, 65.0f, 30.0f)];
+    backButton = [[UIButton alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 65.0f, 30.0f)];
     [backButton addTarget:self action:@selector(closeAndGoBack) forControlEvents:UIControlEventTouchDown];
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
     [backButton.titleLabel setTextColor:[UIColor whiteColor]];

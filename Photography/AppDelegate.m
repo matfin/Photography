@@ -12,6 +12,7 @@
 
 @synthesize navigationController;
 @synthesize albumViewController;
+@synthesize loadingView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,8 +26,20 @@
     self.navigationController = [[NavigationViewController alloc] initWithRootViewController:self.albumViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    
+    [self showLoadingView];
     return YES;
+}
+
+- (void)showLoadingView
+{
+    /*  The loading view to appear until all photosets have loaded their data   */
+    self.loadingView = [[LoadingView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.window.bounds.size.width, self.window.bounds.size.height)];
+    [self.window addSubview:self.loadingView];
+}
+
+- (void)hideLoadingView
+{
+    [self.loadingView removeFromSuperview];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
