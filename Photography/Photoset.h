@@ -22,9 +22,6 @@
 
 @optional
 - (void) photosLoaded: (BOOL)success;
-- (void) photosetAtIndexHasLoadedPhotos: (NSUInteger)photosetIndex;
-- (void) photosetHasLoadedAllPhotos: (NSMutableArray *)thePhotos;
-- (void) photosetOfferedPreviewImageForIndexOnLoaded: (Image *)previewImage :(NSUInteger)forTableIndex;
 @end
 
 @interface Photoset : NSObject <ASIHTTPRequestDelegate, PhotoDelegate>

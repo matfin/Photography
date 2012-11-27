@@ -25,6 +25,7 @@
 		C92396C0163D9FA3002E2DB7 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */; };
 		C92396C9163DA44B002E2DB7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92396C8163DA44B002E2DB7 /* CFNetwork.framework */; };
 		C92396CC163DA532002E2DB7 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C92396CB163DA532002E2DB7 /* AlbumViewController.xib */; };
+		C99DDED91665579C00BE93D7 /* PhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C99DDED81665579C00BE93D7 /* PhotoLoader.m */; };
 		C99F39A416614AB4004E981F /* PhotosetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F39A216614AB4004E981F /* PhotosetViewController.m */; };
 		C99F39A516614AB4004E981F /* PhotosetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99F39A316614AB4004E981F /* PhotosetViewController.xib */; };
 		C99F39A9166172BC004E981F /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99F39A8166172BC004E981F /* PhotoView.m */; };
@@ -69,6 +70,8 @@
 		C92396BF163D9FA3002E2DB7 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		C92396C8163DA44B002E2DB7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C92396CB163DA532002E2DB7 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
+		C99DDED71665579C00BE93D7 /* PhotoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLoader.h; sourceTree = "<group>"; };
+		C99DDED81665579C00BE93D7 /* PhotoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLoader.m; sourceTree = "<group>"; };
 		C99F39A116614AB4004E981F /* PhotosetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosetViewController.h; sourceTree = "<group>"; };
 		C99F39A216614AB4004E981F /* PhotosetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosetViewController.m; sourceTree = "<group>"; };
 		C99F39A316614AB4004E981F /* PhotosetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosetViewController.xib; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				C9B3CA12165C329B00B55D75 /* Photo.m */,
 				C9B3CA15165C32B100B55D75 /* Image.h */,
 				C9B3CA16165C32B100B55D75 /* Image.m */,
+				C99DDED71665579C00BE93D7 /* PhotoLoader.h */,
+				C99DDED81665579C00BE93D7 /* PhotoLoader.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				C99F39A9166172BC004E981F /* PhotoView.m in Sources */,
 				C99F9446166266D500DCA309 /* GalleryViewController.m in Sources */,
 				C99F944D1662C01300DCA309 /* LoadingView.m in Sources */,
+				C99DDED91665579C00BE93D7 /* PhotoLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +392,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -414,7 +420,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

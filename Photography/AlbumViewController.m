@@ -7,14 +7,11 @@
 //
 
 #import "AlbumViewController.h"
-#import "AppDelegate.h"
 
 @implementation AlbumViewController
 
 @synthesize albumsTable;
 @synthesize photoSets;
-@synthesize request;
-@synthesize numberOfPhotosetsLoaded;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,16 +33,16 @@
     [self.albumsTable setDelegate:self];
     [self.albumsTable setDataSource:self];
     [self.albumsTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosetbackground"]]];
-    self.photoSets = [[NSMutableArray alloc] init];
-    self.numberOfPhotosetsLoaded = 0;
     
-    [self grabURLInBackground];
+    PhotoLoader *photoLoader = [PhotoLoader sharedInstance];
+    
+    self.photoSets = photoLoader.photoSets;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"We have %i photosets", [photoSets count]);
-    return [photoSets count];
+    NSLog(@"We have %i photosets", [self.photoSets count]);
+    return [self.photoSets count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,89 +74,7 @@
 
 - (void)dealloc
 {
-    [self.request clearDelegatesAndCancel];
-    self.request = nil;
-}
-
-- (void)grabURLInBackground
-{    
-    NSURL *flickrURL = [NSURL URLWithString:FLICKR_API_URL];
-    /*
-     *  Set up Flickr API url with params for fetching Photosets
-     */
-    self.request = [ASIFormDataRequest requestWithURL:flickrURL];
-    [self.request addPostValue:@"flickr.photosets.getList" forKey:@"method"];
-    [self.request addPostValue:FLICKR_API_KEY forKey:@"api_key"];
-    [self.request addPostValue:FLICKR_USER_ID forKey:@"user_id"];
-    [self.request addPostValue:@"json" forKey:@"format"];
-    [self.request addPostValue:@"1" forKey:@"nojsoncallback"];
-    
-    /*
-     *  Set Delegate to self then grab data from callback with async request
-     */
-    [self.request setDelegate:self];
-    [self.request startAsynchronous];
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)theRequest
-{
-    NSLog(@"We finished the request succesfully");
-    
-    NSString *responseString = [theRequest responseString];
-    // Grab the json and create a JSON Kit NSDictionary from it.
-    NSDictionary *resultsDictionary = [responseString objectFromJSONString];
-    
-    NSDictionary *flickrPhotoSets = [[resultsDictionary objectForKey:@"photosets"] objectForKey:@"photoset"];
-    NSUInteger photosetIndex = 0;
-    for(NSDictionary *flickrPhotoSet in flickrPhotoSets)
-    {
-        Photoset *photoSet = [[Photoset alloc] initWithDictionaryAndIndex:flickrPhotoSet :photosetIndex];
-        photosetIndex++;
-        [photoSet setDelegate:self];
-        [photoSet populatePhotos];
-        [self.photoSets addObject:photoSet];
-    }
-    [self.albumsTable reloadData];
-}
-
-- (void)photosetOfferedPreviewImageForIndexOnLoaded:(Image *)previewImage :(NSUInteger)forTableIndex
-{
-    PhotosetTableCell *cell = (PhotosetTableCell *)[self.albumsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:forTableIndex inSection:0]];
-    /*
-     *  Only enable user interaction when all json data for this photoset is fetched.
-     */
-    
-    [cell.photosetPreviewImageView      setImageWithURL:previewImage.imageSource
-                                        placeholderImage:nil
-                                        success:^(UIImage *image, BOOL cached)
-                                        {
-                                            [cell.imagePreviewLoadingActivityIndicator stopAnimating];
-                                            cell.imagePreviewLoadingActivityIndicator = nil;
-                                            [cell.photosetPreviewImageView setHidden:NO];
-                                        }
-                                        failure:nil
-     ];
-}
-
-- (void)photosLoaded:(BOOL)success
-{
-    self.numberOfPhotosetsLoaded++;
-    
-    float loadingProgress = (float)self.numberOfPhotosetsLoaded / (float)[self.photoSets count];
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.loadingView.progressIndicator setProgress:loadingProgress];
-    
-    if(self.numberOfPhotosetsLoaded == [self.photoSets count])
-    {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        [appDelegate hideLoadingView];
-    }
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)theRequest
-{
-    NSLog(@"Could not finish the request");
+    self.photoSets = nil;
 }
 
 @end

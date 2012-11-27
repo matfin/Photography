@@ -90,8 +90,6 @@
     }
     if(countOfsuccesfullyLoadedPhotos == [photosetPhotos count])
     {
-        Image *previewImage = [[self.photosetPhotos objectAtIndex:0] getImageFromSizeLabel:@"Square"];
-        [[self delegate] photosetOfferedPreviewImageForIndexOnLoaded:previewImage :self.photosetIndex];
         [[self delegate] photosLoaded:YES];
     }
 }

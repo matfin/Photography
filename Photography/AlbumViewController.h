@@ -8,19 +8,11 @@
 
 #import "AbstractViewController.h"
 #import "Photoset.h"
+#import "PhotoLoader.h"
 
-#define FLICKR_USER_ID  @"7994187@N06"
-#define FLICKR_API_KEY  @"ca85ac818eb4301d772ffa07cde809c4"
-#define FLICKR_SECRET   @"608dd2303e2c4148"
-#define FLICKR_API_URL  @"http://api.flickr.com/services/rest/?"
-
-@interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate, ASIHTTPRequestDelegate, PhotoSetDelegate>
+@interface AlbumViewController : AbstractViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (unsafe_unretained, nonatomic) IBOutlet UITableView *albumsTable;
 @property (nonatomic, retain) NSMutableArray *photoSets;
-@property (nonatomic, retain) ASIFormDataRequest *request;
-@property (assign) NSUInteger numberOfPhotosetsLoaded;
-
-- (void)grabURLInBackground;
 
 @end

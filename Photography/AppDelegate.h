@@ -10,8 +10,9 @@
 #import "NavigationViewController.h"
 #import "AlbumViewController.h" 
 #import "LoadingView.h"
+#import "PhotoLoader.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, PhotoLoaderDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NavigationViewController *navigationController;

@@ -19,15 +19,29 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
     
+    /*  Load the photos */
+    PhotoLoader *photoLoader = [PhotoLoader sharedInstance];
+    [photoLoader setDelegate:self];
+
+    [self.window makeKeyAndVisible];    
+    [self showLoadingView];
+    
+    return YES;
+}
+
+- (void)percentLoaded:(float)percentage
+{
+    [self.loadingView.progressIndicator setProgress:percentage];
+}
+
+- (void)allPhotosetsLoaded:(BOOL)loaded
+{
+    [self hideLoadingView];
+    
     /*  Setting up our ViewControllers */
     self.albumViewController = [[AlbumViewController alloc] initWithNavBarTitle:@"Albums"];
-    
-    /*  Setting up NavigationViewController and displaying view */
     self.navigationController = [[NavigationViewController alloc] initWithRootViewController:self.albumViewController];
     self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
-    [self showLoadingView];
-    return YES;
 }
 
 - (void)showLoadingView
