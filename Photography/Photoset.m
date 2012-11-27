@@ -110,6 +110,8 @@
      *  A custom delegate called in AlbumViewController.m will re-enable user interaction.
      */
     
+    Image *previewImage = [[self.photosetPhotos objectAtIndex:0] getImageFromSizeLabel:@"Square"];
+    
     [cell setBackgroundColor:[UIColor clearColor]];
     
     [cell.photosetTitleLabel setText:self.photosetTitle];
@@ -120,6 +122,18 @@
     [cell.imagePreviewLoadingActivityIndicator setHidesWhenStopped:YES];
     [cell.imagePreviewLoadingActivityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
     [cell.imagePreviewLoadingActivityIndicator startAnimating];
+    
+    [cell.photosetPreviewImageView  setImageWithURL:previewImage.imageSource
+                                    placeholderImage:nil
+                                    success:^(UIImage *image, BOOL cached)
+                                    {
+                                        [cell.imagePreviewLoadingActivityIndicator stopAnimating];
+                                    }
+                                    failure:^(NSError *error)
+                                    {
+                                    }
+     ];
+     
     return cell;
 }
 
